@@ -1,6 +1,28 @@
-body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+.certificate{
+    width: 10rem;
+   
+}
+insta{
+    width: 1.0rem;
+    margin-left: 1.0rem;
+}
+.insta img{
+    margin-left:rem;
+    width:1.0rem;
+  }
+.mail img{
+    width: 1.0rem;
+   
+}
+.github img{
+    width:1rem;
+}
+.linkedin img{
+    width:1rem;
+}
+.leetcode img{
+    width:1rem;
+}
+.hackerrank img{
+    width:1rem;
 }
