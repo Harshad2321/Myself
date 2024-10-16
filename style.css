@@ -1,28 +1,70 @@
+.global {
+    padding: auto;
+    margin: auto;
+}
 .certificate{
     width: 10rem;
-   
+   padding: auto;
+    margin: auto;
 }
-insta{
-    width: 1.0rem;
-    margin-left: 1.0rem;
-}
+
 .insta img{
-    margin-left:rem;
-    width:1.0rem;
+   padding-inline: 1rem;
+    width:3rem;
   }
 .mail img{
-    width: 1.0rem;
+   padding-inline: 1rem;
+    width: 3.0rem;
    
 }
 .github img{
-    width:1rem;
+    padding-inline: 1rem;
+    width:3rem;
 }
 .linkedin img{
-    width:1rem;
+    padding-inline: 1rem;
+    width:3rem;
 }
 .leetcode img{
-    width:1rem;
+    padding-inline: 1rem;
+    width:3rem;
 }
 .hackerrank img{
-    width:1rem;
+    padding-inline: 1rem;
+    width:3rem;
+}
+.custom-text {
+    font-family: Arial, sans-serif; /* Change the font family */
+    font-size: 1.rem; /* Change the font size */
+    font-style: italic; /* Make the text italic */
+    color: #333; /* Change the text color */
+}
+h1{
+    text-align: center;
+    font-size: 2.0rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.contacts{
+    display: flex;
+    justify-content: center;
+    padding-top:0rem;
+}
+.pop-image {
+    transition: transform 0.3s ease; 
+}
+.pop-image:hover {
+    transform: scale(1.3); 
+}
+.head1{
+    margin: auto;
+    background-color: rgb(77, 88, 52);
+    padding:auto;
+    color: white;
+}
+.foot1{
+    margin: auto;
+    background-color: rgb(40, 27, 44);
+    padding:auto;
+    color: rgb(9, 108, 151);
 }
