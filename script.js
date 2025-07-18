@@ -1,21 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const certificates = [
-        "2 FAST 2 HACK.pdf",
-        "Basic Of AI-ML.pdf",
-        "CERTIFICATE OF NATION BUILDING.pdf",
-        "Certificate ICFAMEAD.pdf",
-        "EXERGY Harshad Agrawal.png",
-        "Harshad_Agrawal_Resume.pdf",
-        "IN12103479_go4youth_certificate.pdf",
-        "CERTIFICATE OF PYTHON-1.png"
-    ];
-    const container = document.querySelector(".certificate-list");
+AOS.init();
 
-    certificates.forEach(file => {
-        const link = document.createElement("a");
-        link.href = `assets/certificates/${file}`;
-        link.target = "_blank";
-        link.innerText = file.replace(/_/g, " ");
-        container.appendChild(link);
-    });
+const toggle = document.getElementById('toggle-mode');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
 });
+
+// Modal logic
+function openModal(certName) {
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+  content.src = `assets/certificates/${certName}`;
+  modal.style.display = "block";
+}
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
