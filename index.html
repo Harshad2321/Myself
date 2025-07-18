@@ -3,71 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harshad Agrawal | AI-ML Portfolio</title>
+  <title>Harshad Agrawal | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>Harshad Agrawal</h1>
-    <p>AI/ML Enthusiast | Web Developer | Tech Explorer</p>
+    <div class="logo">Harshad</div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section class="about" data-aos="fade-up">
+  <section class="home">
+    <img src="ASSETS/LOGOS/myself.jpg" alt="Harshad Profile" class="profile-pic" />
+    <h1>Hello, I'm <span>Harshad Agrawal</span></h1>
+    <p>B.Tech AIML | Passionate about AI, Web Dev & Tech</p>
+  </section>
+
+  <section id="about" class="fade-in">
     <h2>About Me</h2>
-    <p>I am pursuing BTech in Artificial Intelligence and Machine Learning at Symbiosis. Passionate about tech, problem-solving, and AI-driven innovation.</p>
+    <p>I’m an enthusiastic engineering student diving into AI-ML, Python, and web development, with a hunger to create impactful projects and become industry-ready by 2025.</p>
   </section>
 
-  <section class="skills" data-aos="fade-up">
+  <section id="skills" class="fade-in">
     <h2>Skills</h2>
-    <ul>
-      <li>Python, C, SQL</li>
-      <li>HTML, CSS, JavaScript</li>
-      <li>MongoDB, Node.js</li>
-      <li>AI/ML, Data Preprocessing</li>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>AI/ML</li>
+      <li>SQL</li>
+      <li>JavaScript</li>
+      <li>HTML/CSS</li>
+      <li>Node.js</li>
+      <li>MongoDB</li>
+      <li>Git & GitHub</li>
     </ul>
   </section>
 
-  <section class="projects" data-aos="zoom-in-up">
-    <h2>Projects</h2>
-    <ul>
-      <li><b>Career Guidance Website</b> – Built at SIH 2024.</li>
-      <li><b>Mini Python Games</b> – View on <a href="https://github.com/Harshad2321" target="_blank">GitHub</a>.</li>
-    </ul>
-  </section>
-
-  <section class="certificates" data-aos="fade-up">
+  <section id="certificates" class="fade-in">
     <h2>Certificates</h2>
     <div class="cert-grid">
-      <!-- Replace with your real certificate images -->
-      <img src="ASSETS/CERTIFICATES/cert1.png" alt="Certificate 1" class="cert" />
-      <img src="ASSETS/CERTIFICATES/cert2.png" alt="Certificate 2" class="cert" />
-      <img src="ASSETS/CERTIFICATES/cert3.png" alt="Certificate 3" class="cert" />
-      <img src="ASSETS/CERTIFICATES/cert4.png" alt="Certificate 4" class="cert" />
-      <img src="ASSETS/CERTIFICATES/cert5.png" alt="Certificate 5" class="cert" />
-      <img src="ASSETS/CERTIFICATES/cert6.png" alt="Certificate 6" class="cert" />
-      <img src="ASSETS/CERTIFICATES/cert7.png" alt="Certificate 7" class="cert" />
+      <!-- Repeat for each certificate -->
+      <div class="cert-item">
+        <img src="ASSETS/CERTIFICATES/Harshad Agrawal Python.png" alt="Python Certificate" />
+        <p>Python Programming</p>
+      </div>
+      <div class="cert-item">
+        <img src="ASSETS/CERTIFICATES/EXERGY Harshad Agrawal.png" alt="Exergy Certificate" />
+        <p>Campus Ambassador - Exergy</p>
+      </div>
+      <!-- Add remaining certificates similarly -->
     </div>
   </section>
 
-  <section class="contacts" data-aos="fade-up">
-    <h2>Connect</h2>
-    <div class="social-icons">
-      <a href="mailto:harshad.agrawal2005@gmail.com"><img src="LOGOS/email.png" /></a>
-      <a href="https://www.instagram.com/harshad_agrawal_2005/"><img src="LOGOS/insta.jpg" /></a>
-      <a href="https://www.linkedin.com/in/harshad-agrawal-486964322/"><img src="LOGOS/linkedin.png" /></a>
-      <a href="https://github.com/Harshad2321"><img src="LOGOS/github.png" /></a>
-      <a href="https://leetcode.com/u/harshadagrawal/"><img src="LOGOS/leetcode.png" /></a>
-      <a href="https://www.hackerrank.com/profile/harshad_agrawal1"><img src="LOGOS/hackerrank.png" /></a>
+  <section id="contact" class="fade-in">
+    <h2>Connect With Me</h2>
+    <div class="socials">
+      <a href="https://github.com/Harshad2321" target="_blank">
+        <img src="ASSETS/LOGOS/github.png" alt="GitHub" />
+      </a>
+      <a href="https://linkedin.com/in/harshad2321" target="_blank">
+        <img src="ASSETS/LOGOS/linkedin.png" alt="LinkedIn" />
+      </a>
+      <a href="mailto:harshadagrawal2321@gmail.com">
+        <img src="ASSETS/LOGOS/email.png" alt="Email" />
+      </a>
+      <a href="https://leetcode.com/Harshad2321/" target="_blank">
+        <img src="ASSETS/LOGOS/leetcode.png" alt="LeetCode" />
+      </a>
+      <a href="https://www.hackerrank.com/harshad2321" target="_blank">
+        <img src="ASSETS/LOGOS/hackerrank.png" alt="HackerRank" />
+      </a>
+      <a href="https://instagram.com/harshad_2321" target="_blank">
+        <img src="ASSETS/LOGOS/insta.jpg" alt="Instagram" />
+      </a>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Harshad Agrawal | All rights reserved.</p>
+    <p>&copy; 2025 Harshad Agrawal. All rights reserved.</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
