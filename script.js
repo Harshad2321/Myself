@@ -1,27 +1,21 @@
-// Fade-in on scroll
-document.querySelectorAll('.fade-in').forEach(el => {
-  const obs = new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) {
-      e.target.classList.add('active');
-      obs.unobserve(e.target);
-    }
-  }, {threshold: 0.2});
-  obs.observe(el);
-});
+document.addEventListener("DOMContentLoaded", () => {
+    const certificates = [
+        "2 FAST 2 HACK.pdf",
+        "Basic Of AI-ML.pdf",
+        "CERTIFICATE OF NATION BUILDING.pdf",
+        "Certificate ICFAMEAD.pdf",
+        "EXERGY Harshad Agrawal.png",
+        "Harshad_Agrawal_Resume.pdf",
+        "IN12103479_go4youth_certificate.pdf",
+        "CERTIFICATE OF PYTHON-1.png"
+    ];
+    const container = document.querySelector(".certificate-list");
 
-// Dark/Light Mode Toggle
-const toggle = document.getElementById('mode-toggle');
-toggle.onclick = () => {
-  if (document.documentElement.dataset.theme === 'dark') {
-    document.documentElement.removeAttribute('data-theme');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-};
-
-// Back-to-top visibility & scroll up
-const back = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-  back.style.display = window.scrollY > 300 ? 'block' : 'none';
+    certificates.forEach(file => {
+        const link = document.createElement("a");
+        link.href = `assets/certificates/${file}`;
+        link.target = "_blank";
+        link.innerText = file.replace(/_/g, " ");
+        container.appendChild(link);
+    });
 });
-back.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
