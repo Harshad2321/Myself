@@ -1,41 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Personal Website</title>
-  <link rel="stylesheet" href="style.css"> <h1 div class="head1">Myself</h1></div></head>
-<body class="global"
-  <p class="custom-text">
-    Hello! I’m <b>Harshad Nitin Agrawal</b>, an<b>Artifical Intellegnce</b> & <b>Machine Learning </b>enthusiast currently pursuing my studies at 
-    <b>Symbiosis International University</b>. As a student , I’m driven by a passion for leveraging 
-    technology to solve real-world problems. My journey in AI-ML is fueled by curiosity, a strong foundation in
-     data science, and a desire to push the boundaries of innovation.<br>
-    <h1>Skills</h1>
-     <h1>Projects</h1>
-     <h1>Certificates</h1>
-  <ul>
-    <li><strong>Python For Beginners</strong> from Simplilearn.</li>
-    <a target="_blank" href="https://lms.simplilearn.com/courses/4214/Python-for-Beginners/syllabus"><img  src="ASSETS\CERTIFICATES\CERTIFICATE OF PYTHON-1.png " class="certificate" alt="Python For Beginners"></a>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harshad Agrawal | AI-ML Enthusiast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: #f5f6fa;
+      color: #2f3640;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+    section {
+      padding: 3rem 2rem;
+      animation: slideUp 1s ease-in-out;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #273c75;
+      text-align: center;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    .projects, .skills, .certificates, .contacts {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .certificates img {
+      width: 100%;
+      max-width: 300px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .certificates img:hover {
+      transform: scale(1.05);
+    }
+    .contacts img {
+      width: 40px;
+      margin: 0 1rem;
+      transition: transform 0.3s ease;
+    }
+    .contacts img:hover {
+      transform: scale(1.2);
+    }
+    .contacts {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    footer {
+      background: #2f3640;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Harshad Agrawal</h1>
+    <p>AI/ML Enthusiast | Web Developer | Tech Explorer</p>
+  </header>
+
+  <section class="about">
+    <h2 class="section-title">About Me</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">I’m currently pursuing BTech in Artificial Intelligence and Machine Learning at Symbiosis International University. With a strong foundation in Python, web development, and data science, I am passionate about solving real-world problems using technology.</p>
+  </section>
+
+  <section class="skills">
+    <h2 class="section-title">Skills</h2>
+    <ul>
+      <li>Python, C</li>
+      <li>HTML, CSS, JavaScript</li>
+      <li>MongoDB, Node.js (Basics)</li>
+      <li>Data Preprocessing & Analysis</li>
+      <li>Git, GitHub</li>
     </ul>
-    <div class="foot1">
-    <h1>Contacts</h1>
+  </section>
+
+  <section class="projects">
+    <h2 class="section-title">Projects</h2>
+    <ul>
+      <li><strong>Career Guidance Website</strong> – Developed during Smart India Hackathon to help students choose the right career path.</li>
+      <li><strong>Python Mini Games</strong> – Hangman, Treasure Hunt, Rock-Paper-Scissors, and more. <a href="https://github.com/Harshad2321" target="_blank">View on GitHub</a></li>
+    </ul>
+  </section>
+
+  <section class="certificates">
+    <h2 class="section-title">Certificates</h2>
+    <img src="ASSETS/CERTIFICATES/CERTIFICATE OF PYTHON-1.png" alt="Python For Beginners">
+    <!-- Add more certificates as needed -->
+  </section>
+
+  <section class="contacts">
+    <h2 class="section-title">Let's Connect</h2>
     <div class="contacts">
-    <div class="mail">
-      <a target="_blank" href="mailto:harshad.agrawal2005@gmail.com"><img class="pop-image" src="LOGOS/email.png"></a>
+      <a href="mailto:harshad.agrawal2005@gmail.com" target="_blank"><img src="LOGOS/email.png" alt="Email"></a>
+      <a href="https://www.instagram.com/harshad_agrawal_2005/" target="_blank"><img src="LOGOS/insta.jpg" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/in/harshad-agrawal-486964322/" target="_blank"><img src="LOGOS/linkedin.png" alt="LinkedIn"></a>
+      <a href="https://github.com/Harshad2321" target="_blank"><img src="LOGOS/github.png" alt="GitHub"></a>
+      <a href="https://leetcode.com/u/harshadagrawal/" target="_blank"><img src="LOGOS/leetcode.png" alt="LeetCode"></a>
+      <a href="https://www.hackerrank.com/profile/harshad_agrawal1" target="_blank"><img src="LOGOS/hackerrank.png" alt="HackerRank"></a>
     </div>
-    <div class="insta">
-      <a target="_blank" href="https://www.instagram.com/harshad_agrawal_2005/"><img class="pop-image" src="LOGOS/insta.jpg"></a>
-    </div>
-    <div class="linkedin">
-      <a target="_blank" href="https://www.linkedin.com/in/harshad-agrawal-486964322/"><img class="pop-image" src="LOGOS/linkedin.png"></a>
-    </div>
-    <div class="github">
-      <a target="_blank"  href="https://github.com/Harshad2321"> <img class="pop-image" src="LOGOS/github.png"></a>
-    </div>
-    <div class="leetcode">
-      <a target="_blank"  href="https://leetcode.com/u/harshadagrawal/"><img class="pop-image" src="LOGOS/leetcode.png"></a>
-    </div>
-   <div class="hackerrank">
-      <a target="_blank" href="https://www.hackerrank.com/profile/harshad_agrawal1" > <img class="pop-image" src="LOGOS/hackerrank.png"></a>
-    </div></div></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Harshad Agrawal. All rights reserved.</p>
+  </footer>
 </body>
 </html>
