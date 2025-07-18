@@ -1,89 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Harshad Agrawal | AI-ML Enthusiast</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-    body {
-      background: #f5f6fa;
-      color: #2f3640;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(90deg, #4b6cb7, #182848);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    header h1 {
-      font-size: 2.5rem;
-    }
-    section {
-      padding: 3rem 2rem;
-      animation: slideUp 1s ease-in-out;
-    }
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #273c75;
-      text-align: center;
-    }
-    ul li {
-      margin: 0.5rem 0;
-    }
-    .projects, .skills, .certificates, .contacts {
-      max-width: 1000px;
-      margin: auto;
-    }
-    .certificates img {
-      width: 100%;
-      max-width: 300px;
-      margin: 1rem auto;
-      display: block;
-      border-radius: 8px;
-      transition: transform 0.3s;
-    }
-    .certificates img:hover {
-      transform: scale(1.05);
-    }
-    .contacts img {
-      width: 40px;
-      margin: 0 1rem;
-      transition: transform 0.3s ease;
-    }
-    .contacts img:hover {
-      transform: scale(1.2);
-    }
-    .contacts {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    footer {
-      background: #2f3640;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -93,7 +15,7 @@
 
   <section class="about">
     <h2 class="section-title">About Me</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">I’m currently pursuing BTech in Artificial Intelligence and Machine Learning at Symbiosis International University. With a strong foundation in Python, web development, and data science, I am passionate about solving real-world problems using technology.</p>
+    <p class="centered-text">I’m currently pursuing BTech in Artificial Intelligence and Machine Learning at Symbiosis International University. With a strong foundation in Python, web development, and data science, I am passionate about solving real-world problems using technology.</p>
   </section>
 
   <section class="skills">
@@ -118,18 +40,17 @@
   <section class="certificates">
     <h2 class="section-title">Certificates</h2>
     <img src="ASSETS/CERTIFICATES/CERTIFICATE OF PYTHON-1.png" alt="Python For Beginners">
-    <!-- Add more certificates as needed -->
   </section>
 
   <section class="contacts">
     <h2 class="section-title">Let's Connect</h2>
-    <div class="contacts">
-      <a href="mailto:harshad.agrawal2005@gmail.com" target="_blank"><img src="LOGOS/email.png" alt="Email"></a>
-      <a href="https://www.instagram.com/harshad_agrawal_2005/" target="_blank"><img src="LOGOS/insta.jpg" alt="Instagram"></a>
-      <a href="https://www.linkedin.com/in/harshad-agrawal-486964322/" target="_blank"><img src="LOGOS/linkedin.png" alt="LinkedIn"></a>
-      <a href="https://github.com/Harshad2321" target="_blank"><img src="LOGOS/github.png" alt="GitHub"></a>
-      <a href="https://leetcode.com/u/harshadagrawal/" target="_blank"><img src="LOGOS/leetcode.png" alt="LeetCode"></a>
-      <a href="https://www.hackerrank.com/profile/harshad_agrawal1" target="_blank"><img src="LOGOS/hackerrank.png" alt="HackerRank"></a>
+    <div class="contacts-row">
+      <a href="mailto:harshad.agrawal2005@gmail.com"><img src="LOGOS/email.png" alt="Email"></a>
+      <a href="https://www.instagram.com/harshad_agrawal_2005/"><img src="LOGOS/insta.jpg" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/in/harshad-agrawal-486964322/"><img src="LOGOS/linkedin.png" alt="LinkedIn"></a>
+      <a href="https://github.com/Harshad2321"><img src="LOGOS/github.png" alt="GitHub"></a>
+      <a href="https://leetcode.com/u/harshadagrawal/"><img src="LOGOS/leetcode.png" alt="LeetCode"></a>
+      <a href="https://www.hackerrank.com/profile/harshad_agrawal1"><img src="LOGOS/hackerrank.png" alt="HackerRank"></a>
     </div>
   </section>
 
