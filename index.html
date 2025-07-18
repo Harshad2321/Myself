@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harshad Agrawal | Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 </head>
 <body>
-  <header>
+
+  <button id="toggle-mode">🌙 Toggle Mode</button>
+
+  <header data-aos="fade-down">
     <img src="assets/logos/myself.jpg" alt="Harshad" class="profile-img"/>
     <h1>Harshad Agrawal</h1>
     <p class="tagline">Learning. Building. Growing.</p>
   </header>
 
-  <section class="about">
+  <section class="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>B.Tech AIML student passionate about AI, Web Development, and Cybersecurity.</p>
   </section>
 
-  <section class="certificates">
+  <section class="certificates" data-aos="fade-up">
     <h2>Certificates</h2>
     <div class="cert-grid">
-      <a href="assets/certificates/2 FAST 2 HACK.pdf" target="_blank">2 FAST 2 HACK</a>
-      <a href="assets/certificates/Basic Of AI-ML.pdf" target="_blank">Basic Of AI-ML</a>
-      <a href="assets/certificates/CERTIFICATE OF NATION BUILDING.pdf" target="_blank">Nation Building</a>
-      <a href="assets/certificates/Certificate ICFA.pdf" target="_blank">ICFAMEAD</a>
-      <a href="assets/certificates/IN12103479_go4youth_certificate.pdf" target="_blank">Go4Youth</a>
-      <a href="assets/certificates/EXERGY Harshad Agrawal.png" target="_blank">EXERGY</a>
-      <!-- Add more as needed -->
+      <div class="cert-item" onclick="openModal('2 FAST 2 HACK.pdf')">2 FAST 2 HACK</div>
+      <div class="cert-item" onclick="openModal('Basic Of AI-ML.pdf')">Basic Of AI-ML</div>
+      <div class="cert-item" onclick="openModal('CERTIFICATE OF NATION BUILDING.pdf')">Nation Building</div>
+      <div class="cert-item" onclick="openModal('Certificate ICFA.pdf')">ICFAMEAD</div>
+      <div class="cert-item" onclick="openModal('IN12103479_go4youth_certificate.pdf')">Go4Youth</div>
+      <div class="cert-item" onclick="openModal('EXERGY Harshad Agrawal.png')">EXERGY</div>
     </div>
   </section>
 
-  <section class="resume">
+  <section class="resume" data-aos="fade-up">
     <h2>Resume</h2>
     <iframe src="assets/certificates/Harshad_Agrawal_Resume.pdf" width="100%" height="500px"></iframe>
-    <a href="assets/certificates/Harshad_Agrawal_Resume.pdf" download>Download Resume</a>
+    <a href="assets/certificates/Harshad_Agrawal_Resume.pdf" download class="resume-link">Download Resume</a>
   </section>
 
-  <section class="contact">
+  <section class="contact" data-aos="fade-up">
     <h2>Contact</h2>
     <div class="icons">
       <a href="https://github.com/Harshad2321" target="_blank"><img src="assets/logos/github.png" alt="GitHub"/></a>
@@ -50,6 +53,13 @@
 
   <footer>© 2025 Harshad Agrawal</footer>
 
+  <!-- Modal Viewer -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">×</span>
+    <embed id="modal-content" src="" type="application/pdf" width="90%" height="600px"/>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
