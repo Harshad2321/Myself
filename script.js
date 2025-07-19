@@ -1,3 +1,8 @@
+document.getElementById("mode-toggle").addEventListener("click", () => {
+  const t = document.documentElement.getAttribute("data-theme");
+  document.documentElement.setAttribute("data-theme", t === "light" ? "dark" : "light");
+});
+
 const certificates = [
   { name: "Python", path: "assets/certificates/python-certificate.png" },
   { name: "AI-ML", path: "assets/certificates/basic-aiml.png" },
@@ -9,30 +14,21 @@ const certificates = [
   { name: "Hackathon", path: "assets/certificates/2fast2hack.png" }
 ];
 
-const container = document.getElementById("certificate-container");
+const certContainer = document.getElementById("certContainer");
 const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-content");
-const closeModal = document.getElementById("close");
+const modalImg = document.getElementById("modalContent");
+const closeBtn = document.querySelector(".close");
 
-certificates.forEach(cert => {
-  const img = document.createElement("img");
-  img.src = cert.path;
-  img.alt = cert.name;
-  img.title = cert.name;
-  img.addEventListener("click", () => {
-    modal.style.display = "block";
-    modalImg.src = cert.path;
-    modalImg.alt = cert.name;
-  });
-  container.appendChild(img);
+certificates.forEach(c => {
+  const d = document.createElement("div");
+  d.className = "cert-item";
+  d.innerHTML = `<p>${c.name}</p>`;
+  d.onclick = () => {
+    modalImg.src = c.path;
+    modal.style.display = "flex";
+  };
+  certContainer.appendChild(d);
 });
 
-closeModal.onclick = () => {
-  modal.style.display = "none";
-};
-
-window.onclick = (event) => {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-};
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
