@@ -1,12 +1,3 @@
-document.getElementById("mode-toggle").addEventListener("click", () => {
-  const theme = document.documentElement.getAttribute("data-theme");
-  document.documentElement.setAttribute("data-theme", theme === "light" ? "dark" : "light");
-});
-
-document.getElementById("back-to-top").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
 const certificates = [
   { name: "Python", path: "assets/certificates/python-certificate.png" },
   { name: "AI-ML", path: "assets/certificates/basic-aiml.png" },
@@ -18,32 +9,30 @@ const certificates = [
   { name: "Hackathon", path: "assets/certificates/2fast2hack.png" }
 ];
 
-const certContainer = document.getElementById("certContainer");
+const container = document.getElementById("certificate-container");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-content");
+const closeModal = document.getElementById("close");
 
 certificates.forEach(cert => {
-  const div = document.createElement("div");
-  div.className = "cert-item";
-  div.innerHTML = `<p>${cert.name}</p>`;
-  div.addEventListener("click", () => openModal(cert.path));
-  certContainer.appendChild(div);
+  const img = document.createElement("img");
+  img.src = cert.path;
+  img.alt = cert.name;
+  img.title = cert.name;
+  img.addEventListener("click", () => {
+    modal.style.display = "block";
+    modalImg.src = cert.path;
+    modalImg.alt = cert.name;
+  });
+  container.appendChild(img);
 });
 
-const modal = document.getElementById("modal");
-const modalContent = document.getElementById("modalContent");
-
-function openModal(src) {
-  modalContent.src = src;
-  modal.style.display = "flex";
-}
-
-document.querySelector(".close").onclick = () => {
+closeModal.onclick = () => {
   modal.style.display = "none";
-  modalContent.src = "";
 };
 
-window.onclick = e => {
-  if (e.target === modal) {
+window.onclick = (event) => {
+  if (event.target === modal) {
     modal.style.display = "none";
-    modalContent.src = "";
   }
 };
