@@ -1,66 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Harshad Agrawal | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <div class="logo">Harshad Agrawal</div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="mode-toggle">🌓</button></li>
-      </ul>
-    </nav>
+    <h1>Harshad Agrawal</h1>
+    <p>AI-ML Student | Web Developer | Problem Solver</p>
   </header>
 
-  <section class="home-section">
-    <img src="assets/certificates/profile-pic.png" alt="Harshad Profile" class="profile-pic">
-    <h1>Learning. Building. Growing.</h1>
-    <p>Aspiring AIML Developer | Python Enthusiast | Campus Ambassador</p>
-    <a href="assets/certificates/Harshad_Agrawal_Resume.pdf" class="btn" download>Download Resume (PDF)</a>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I am passionate about AI, web development, and competitive coding. This is my portfolio where you can find my certificates, resume, and ways to connect with me.</p>
   </section>
 
-  <section class="section" id="about">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li><li>AI/ML</li><li>SQL</li><li>Web Dev</li><li>Node.js</li><li>MongoDB</li><li>HTML/CSS</li><li>GitHub</li>
-    </ul>
+  <section class="resume">
+    <h2>Resume</h2>
+    <a href="assets/certificates/Harshad_Agrawal_Resume.pdf" download>📄 Download My Resume</a>
   </section>
 
-  <section class="section" id="certificates">
+  <section class="certificates">
     <h2>Certificates</h2>
-    <div class="cert-grid" id="certContainer">
-      <!-- JavaScript auto-fills here -->
-    </div>
+    <div id="certificate-container" class="certificates-grid"></div>
   </section>
 
-  <section class="section" id="contact">
-    <h2>Connect</h2>
-    <div class="socials">
-      <a href="https://github.com/Harshad2321" target="_blank">
-        <img src="assets/certificates/LOGOS/github.png" alt="GitHub" class="icon"> GitHub
-      </a>
-      <a href="https://linkedin.com/in/harshad2321" target="_blank">
-        <img src="assets/certificates/LOGOS/linkedin.png" alt="LinkedIn" class="icon"> LinkedIn
-      </a>
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <div class="social-icons">
+      <a href="https://github.com/Harshad2321" target="_blank"><img src="LOGOS/github.png" alt="GitHub" /></a>
+      <a href="https://www.linkedin.com/in/harshad-agrawal/" target="_blank"><img src="LOGOS/linkedin.png" alt="LinkedIn" /></a>
+      <a href="mailto:harshad2321@gmail.com"><img src="LOGOS/email.png" alt="Email" /></a>
+      <a href="https://leetcode.com/Harshad2321/" target="_blank"><img src="LOGOS/leetcode.png" alt="LeetCode" /></a>
+      <a href="https://www.hackerrank.com/Harshad2321" target="_blank"><img src="LOGOS/hackerrank.png" alt="HackerRank" /></a>
     </div>
   </section>
-
-  <footer>
-    <p>&copy; 2025 Harshad Agrawal</p>
-    <a href="#" id="back-to-top">⬆</a>
-  </footer>
 
   <div id="modal" class="modal">
-    <span class="close">&times;</span>
-    <img id="modalContent" src="" alt="Certificate Preview"/>
+    <span id="close">&times;</span>
+    <img id="modal-content" class="modal-img" />
   </div>
 
   <script src="script.js"></script>
