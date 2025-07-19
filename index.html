@@ -1,65 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harshad Agrawal | Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <button id="toggle-mode">🌙 Toggle Mode</button>
-
-  <header data-aos="fade-down">
-    <img src="assets/logos/myself.jpg" alt="Harshad" class="profile-img"/>
-    <h1>Harshad Agrawal</h1>
-    <p class="tagline">Learning. Building. Growing.</p>
+  <header>
+    <div class="logo">Harshad Agrawal</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="mode-toggle">🌓</button></li>
+      </ul>
+    </nav>
   </header>
 
-  <section class="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>B.Tech AIML student passionate about AI, Web Development, and Cybersecurity.</p>
+  <section class="home-section">
+    <img src="assets/Harshad%20Agrawal%20Python.png" alt="Harshad Profile" class="profile-pic">
+    <h1>Learning. Building. Growing.</h1>
+    <p>Aspiring AIML Developer | Python Enthusiast | Campus Ambassador</p>
+    <a href="assets/Resume.pdf" class="btn" target="_blank">Download Resume</a>
   </section>
 
-  <section class="certificates" data-aos="fade-up">
+  <section class="section" id="about">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li><li>AI/ML</li><li>SQL</li><li>Web Dev</li><li>Node.js</li><li>MongoDB</li><li>HTML/CSS</li><li>GitHub</li>
+    </ul>
+  </section>
+
+  <section class="section" id="certificates">
     <h2>Certificates</h2>
-    <div class="cert-grid">
-      <div class="cert-item" onclick="openModal('2 FAST 2 HACK.pdf')">2 FAST 2 HACK</div>
-      <div class="cert-item" onclick="openModal('Basic Of AI-ML.pdf')">Basic Of AI-ML</div>
-      <div class="cert-item" onclick="openModal('CERTIFICATE OF NATION BUILDING.pdf')">Nation Building</div>
-      <div class="cert-item" onclick="openModal('Certificate ICFA.pdf')">ICFAMEAD</div>
-      <div class="cert-item" onclick="openModal('IN12103479_go4youth_certificate.pdf')">Go4Youth</div>
-      <div class="cert-item" onclick="openModal('EXERGY Harshad Agrawal.png')">EXERGY</div>
+    <div class="cert-grid" id="certContainer">
+      <!-- JavaScript will auto-fill this -->
     </div>
   </section>
 
-  <section class="resume" data-aos="fade-up">
-    <h2>Resume</h2>
-    <iframe src="assets/certificates/Harshad_Agrawal_Resume.pdf" width="100%" height="500px"></iframe>
-    <a href="assets/certificates/Harshad_Agrawal_Resume.pdf" download class="resume-link">Download Resume</a>
-  </section>
-
-  <section class="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <div class="icons">
-      <a href="https://github.com/Harshad2321" target="_blank"><img src="assets/logos/github.png" alt="GitHub"/></a>
-      <a href="https://linkedin.com/in/harshad-agrawal" target="_blank"><img src="assets/logos/linkedin.png" alt="LinkedIn"/></a>
-      <a href="#"><img src="assets/logos/leetcode.png" alt="LeetCode"/></a>
-      <a href="#"><img src="assets/logos/hackerrank.png" alt="HackerRank"/></a>
-      <a href="mailto:harshad@example.com"><img src="assets/logos/email.png" alt="Email"/></a>
+  <section class="section" id="contact">
+    <h2>Connect</h2>
+    <div class="socials">
+      <a href="https://github.com/Harshad2321" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/harshad2321" target="_blank">LinkedIn</a>
     </div>
   </section>
 
-  <footer>© 2025 Harshad Agrawal</footer>
+  <footer>
+    <p>&copy; 2025 Harshad Agrawal</p>
+    <a href="#" id="back-to-top">⬆</a>
+  </footer>
 
-  <!-- Modal Viewer -->
   <div id="modal" class="modal">
-    <span class="close" onclick="closeModal()">×</span>
-    <embed id="modal-content" src="" type="application/pdf" width="90%" height="600px"/>
+    <span class="close">&times;</span>
+    <iframe id="modalContent" src="" frameborder="0"></iframe>
   </div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
