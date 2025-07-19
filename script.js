@@ -8,14 +8,18 @@ document.getElementById("back-to-top").addEventListener("click", () => {
 });
 
 const certificates = [
-  { name: "Python", path: "assets/certificates/Python-Certificate.pdf" },
-  { name: "AI-ML", path: "assets/certificates/AI-ML-Certificate.pdf" },
-  { name: "SIH", path: "assets/certificates/SIH-Certificate.pdf" },
-  { name: "Hackathon", path: "assets/certificates/Hackathon-Certificate.pdf" },
-  { name: "Nation Building", path: "assets/certificates/Nation-Building.pdf" }
+  { name: "Python", path: "assets/certificates/python-certificate.png" },
+  { name: "AI-ML", path: "assets/certificates/basic-aiml.png" },
+  { name: "Nation Building", path: "assets/certificates/nation-building.png" },
+  { name: "EXERGY IIT Kanpur", path: "assets/certificates/exergy-iitk.png" },
+  { name: "Simplilearn", path: "assets/certificates/python-simplilearn.png" },
+  { name: "Go4Youth", path: "assets/certificates/go4youth.png" },
+  { name: "ICFAMEAD", path: "assets/certificates/icfamead.png" },
+  { name: "Hackathon", path: "assets/certificates/2fast2hack.png" }
 ];
 
 const certContainer = document.getElementById("certContainer");
+
 certificates.forEach(cert => {
   const div = document.createElement("div");
   div.className = "cert-item";
@@ -43,4 +47,3 @@ window.onclick = e => {
     modalContent.src = "";
   }
 };
-
