@@ -126,7 +126,23 @@ p {
 }
 
 [data-theme="dark"] .navbar {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.98);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Enhanced navbar visibility for dark mode */
+[data-theme="dark"] .nav-link {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: var(--accent-primary);
+  background-color: var(--accent-light);
+}
+
+[data-theme="dark"] .theme-toggle {
+  color: var(--text-primary);
+  border-color: var(--border-color);
 }
 
 .nav-container {
@@ -183,6 +199,7 @@ p {
   justify-content: center;
   width: 40px;
   height: 40px;
+  color: var(--text-primary);
 }
 
 .theme-toggle:hover {
