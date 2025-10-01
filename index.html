@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshad Agrawal - Software Developer | AI/ML Enthusiast</title>
+    <meta name="description" content="Harshad Agrawal - Full-stack developer specializing in AI/ML, web development, and modern technologies. View my portfolio and projects.">
+    <meta name="keywords" content="Harshad Agrawal, Software Developer, Full Stack, AI, ML, JavaScript, Python, Web Development">
+    <meta name="author" content="Harshad Agrawal">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Harshad Agrawal - Software Developer">
+    <meta property="og:description" content="Full-stack developer specializing in AI/ML and modern web technologies">
+    <meta property="og:image" content="./LOGOS/profile-pic.png">
+    <meta property="og:url" content="https://harshad2321.github.io/Myself/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Harshad Agrawal - Software Developer">
+    <meta name="twitter:description" content="Full-stack developer specializing in AI/ML and modern web technologies">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./LOGOS/profile-pic.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" aria-label="Harshad Agrawal Home">
+                <span class="logo-text">Harshad</span>
+                <span class="logo-accent">.</span>
+            </a>
+            
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="nav-item active" role="menuitem">Home</a></li>
+                <li role="none"><a href="#about" class="nav-item" role="menuitem">About</a></li>
+                <li role="none"><a href="#experience" class="nav-item" role="menuitem">Experience</a></li>
+                <li role="none"><a href="#projects" class="nav-item" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#certificates" class="nav-item" role="menuitem">Certificates</a></li>
+                <li role="none"><a href="#contact" class="nav-item" role="menuitem">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">☀</span>
+                </button>
+                <a href="./Certificates/Harshad_Agrawal_Resume.pdf" target="_blank" class="btn btn-outline" aria-label="Download Resume">
+                    <span>Resume</span>
+                </a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+    <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-items" role="menubar">
+            <li role="none"><a href="#home" class="mobile-nav-item active" role="menuitem">Home</a></li>
+            <li role="none"><a href="#about" class="mobile-nav-item" role="menuitem">About</a></li>
+            <li role="none"><a href="#experience" class="mobile-nav-item" role="menuitem">Experience</a></li>
+            <li role="none"><a href="#projects" class="mobile-nav-item" role="menuitem">Projects</a></li>
+            <li role="none"><a href="#certificates" class="mobile-nav-item" role="menuitem">Certificates</a></li>
+            <li role="none"><a href="#contact" class="mobile-nav-item" role="menuitem">Contact</a></li>
+        </ul>
+        
+        <div class="mobile-menu-actions">
+            <a href="./Certificates/Harshad_Agrawal_Resume.pdf" target="_blank" class="btn btn-primary">
+                <span>Download Resume</span>
+            </a>
+            <div class="mobile-social-links">
+                <h4>Connect With Me</h4>
+                <div class="social-grid">
+                    <a href="https://github.com/Harshad2321" target="_blank" class="social-link">
+                        <img src="./LOGOS/github.png" alt="GitHub">
+                    </a>
+                    <a href="https://linkedin.com/in/harshad-agrawal" target="_blank" class="social-link">
+                        <img src="./LOGOS/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://leetcode.com/harshadagrawal" target="_blank" class="social-link">
+                        <img src="./LOGOS/leetcode.png" alt="LeetCode">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="hero-grid"></div>
+                <div class="hero-particles"></div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-greeting">
+                            <span class="greeting-text">Hello, I'm</span>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            <span class="title-main">Harshad Agrawal</span>
+                            <span class="title-subtitle">Software Developer</span>
+                        </h1>
+                        
+                        <div class="hero-description">
+                            <p>I craft <span id="typed-text" class="typed-text"></span></p>
+                            <p class="description-detail">
+                                Passionate about AI/ML, full-stack development, and creating 
+                                innovative solutions that make a difference.
+                            </p>
+                        </div>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="15">0</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="12">0</span>
+                                <span class="stat-label">Certificates</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="3">0</span>
+                                <span class="stat-label">Years Learning</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary">
+                                <span>View My Work</span>
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <span>Get In Touch</span>
+                            </a>
+                        </div>
+                        
+                        <div class="hero-social">
+                            <a href="https://github.com/Harshad2321" target="_blank" aria-label="GitHub Profile">
+                                <img src="./LOGOS/github.png" alt="GitHub">
+                            </a>
+                            <a href="https://linkedin.com/in/harshad-agrawal" target="_blank" aria-label="LinkedIn Profile">
+                                <img src="./LOGOS/linkedin.png" alt="LinkedIn">
+                            </a>
+                            <a href="https://leetcode.com/harshadagrawal" target="_blank" aria-label="LeetCode Profile">
+                                <img src="./LOGOS/leetcode.png" alt="LeetCode">
+                            </a>
+                            <a href="https://hackerrank.com/harshadagrawal" target="_blank" aria-label="HackerRank Profile">
+                                <img src="./LOGOS/hackerrank.png" alt="HackerRank">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="profile-container">
+                            <div class="profile-glow"></div>
+                            <img src="./LOGOS/profile-pic.png" alt="Harshad Agrawal Profile Picture" class="profile-image">
+                            <div class="profile-border"></div>
+                        </div>
+                        
+                        <div class="floating-elements">
+                            <div class="floating-card" data-tech="AI/ML">AI</div>
+                            <div class="floating-card" data-tech="JavaScript">JS</div>
+                            <div class="floating-card" data-tech="Python">PY</div>
+                            <div class="floating-card" data-tech="React">RE</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll Down</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">Passionate developer with a love for innovation</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="text-block">
+                            <h3>Who I Am</h3>
+                            <p>
+                                I'm a dedicated software developer with a passion for creating innovative 
+                                solutions using cutting-edge technologies. My journey in tech has led me 
+                                to specialize in AI/ML, full-stack development, and modern web technologies.
+                            </p>
+                        </div>
+                        
+                        <div class="text-block">
+                            <h3>What I Do</h3>
+                            <p>
+                                From building responsive web applications to developing AI-powered systems, 
+                                I enjoy tackling complex problems and turning ideas into reality. I believe 
+                                in writing clean, maintainable code and staying updated with the latest 
+                                industry trends.
+                            </p>
+                        </div>
+                        
+                        <div class="text-block">
+                            <h3>My Mission</h3>
+                            <p>
+                                To leverage technology in creating solutions that make a positive impact. 
+                                Whether it's through innovative web applications, AI systems, or 
+                                collaborative projects, I strive to contribute meaningfully to the tech community.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-section">
+                        <h3>Technical Skills</h3>
+                        
+                        <div class="skills-category">
+                            <h4>Languages</h4>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-icon">PY</span>
+                                    <span>Python</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">JS</span>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">TS</span>
+                                    <span>TypeScript</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">JA</span>
+                                    <span>Java</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-category">
+                            <h4>Frontend</h4>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-icon">RE</span>
+                                    <span>React</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">NX</span>
+                                    <span>Next.js</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">CS</span>
+                                    <span>CSS3</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">HT</span>
+                                    <span>HTML5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-category">
+                            <h4>Backend & Database</h4>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-icon">ND</span>
+                                    <span>Node.js</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">MG</span>
+                                    <span>MongoDB</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">PG</span>
+                                    <span>PostgreSQL</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">FB</span>
+                                    <span>Firebase</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-category">
+                            <h4>AI/ML & Tools</h4>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-icon">TF</span>
+                                    <span>TensorFlow</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">SK</span>
+                                    <span>Scikit-Learn</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">PD</span>
+                                    <span>Pandas</span>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-icon">GT</span>
+                                    <span>Git</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Experience & Education</h2>
+                    <p class="section-subtitle">My journey in technology and learning</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025</div>
+                            <h3>Troubleshoot Ideathon Winner</h3>
+                            <p class="timeline-company">National Level Competition</p>
+                            <p>Won the prestigious Troubleshoot Ideathon 2025, competing against teams nationwide with innovative problem-solving solutions.</p>
+                            <div class="timeline-skills">
+                                <span>Problem Solving</span>
+                                <span>Innovation</span>
+                                <span>Team Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024</div>
+                            <h3>Campus Ambassador</h3>
+                            <p class="timeline-company">eDC IIT Roorkee</p>
+                            <p>Represented eDC IIT Roorkee as Campus Ambassador, promoting entrepreneurship and innovation initiatives across the campus.</p>
+                            <div class="timeline-skills">
+                                <span>Leadership</span>
+                                <span>Communication</span>
+                                <span>Event Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024</div>
+                            <h3>EXERGY Participant</h3>
+                            <p class="timeline-company">IIT Kanpur</p>
+                            <p>Participated in EXERGY, IIT Kanpur's premier technical festival, showcasing innovative projects and technical expertise.</p>
+                            <div class="timeline-skills">
+                                <span>Technical Innovation</span>
+                                <span>Project Development</span>
+                                <span>Research</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023-2024</div>
+                            <h3>Full Stack Development</h3>
+                            <p class="timeline-company">Self-Directed Learning</p>
+                            <p>Mastered modern web development technologies including React, Node.js, and database management through intensive self-study and project development.</p>
+                            <div class="timeline-skills">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022-2023</div>
+                            <h3>AI/ML Specialization</h3>
+                            <p class="timeline-company">Various Platforms</p>
+                            <p>Completed comprehensive AI/ML courses, gaining expertise in machine learning algorithms, data analysis, and Python programming.</p>
+                            <div class="timeline-skills">
+                                <span>Python</span>
+                                <span>Machine Learning</span>
+                                <span>Data Analysis</span>
+                                <span>TensorFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Some of my best work showcasing various technologies</p>
+                </div>
+                
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="ai">AI/ML</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- AI/ML Portfolio Optimizer -->
+                    <div class="project-card" data-category="ai web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji">AI</span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="project-btn" aria-label="View Project">👁️</a>
+                                    <a href="#" class="project-btn" aria-label="View Code">💻</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>AI Portfolio Optimizer</h3>
+                            <p>Intelligent system that analyzes and optimizes portfolio websites using machine learning algorithms for better user engagement.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>TensorFlow</span>
+                                <span>React</span>
+                                <span>Flask</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Smart Task Manager -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji">TM</span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="project-btn" aria-label="View Project">👁️</a>
+                                    <a href="#" class="project-btn" aria-label="View Code">💻</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Smart Task Manager</h3>
+                            <p>Full-stack web application with real-time collaboration, intelligent task prioritization, and team productivity analytics.</p>
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                                <span>Socket.io</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Visualization Dashboard -->
+                    <div class="project-card" data-category="ai web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji">DA</span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="project-btn" aria-label="View Project">👁️</a>
+                                    <a href="#" class="project-btn" aria-label="View Code">💻</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Data Analytics Dashboard</h3>
+                            <p>Interactive dashboard for real-time data analysis with advanced visualization and machine learning insights.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>D3.js</span>
+                                <span>FastAPI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- E-Commerce Platform -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji">EC</span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="project-btn" aria-label="View Project">👁️</a>
+                                    <a href="#" class="project-btn" aria-label="View Code">💻</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Modern E-Commerce</h3>
+                            <p>Full-featured e-commerce platform with payment integration, inventory management, and admin dashboard.</p>
+                            <div class="project-tech">
+                                <span>Next.js</span>
+                                <span>Stripe</span>
+                                <span>PostgreSQL</span>
+                                <span>Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Fitness App -->
+                    <div class="project-card" data-category="mobile ai">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji">FT</span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="project-btn" aria-label="View Project">👁️</a>
+                                    <a href="#" class="project-btn" aria-label="View Code">💻</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>AI Fitness Tracker</h3>
+                            <p>Mobile app with AI-powered workout recommendations, progress tracking, and personalized fitness plans.</p>
+                            <div class="project-tech">
+                                <span>React Native</span>
+                                <span>TensorFlow</span>
+                                <span>Firebase</span>
+                                <span>Health API</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Blockchain Voting System -->
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji">VS</span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="#" class="project-btn" aria-label="View Project">👁️</a>
+                                    <a href="#" class="project-btn" aria-label="View Code">💻</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Secure Voting System</h3>
+                            <p>Blockchain-based voting platform ensuring transparency, security, and immutable record keeping for elections.</p>
+                            <div class="project-tech">
+                                <span>Solidity</span>
+                                <span>Web3.js</span>
+                                <span>React</span>
+                                <span>Ethereum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projects-cta">
+                    <p>Want to see more projects?</p>
+                    <a href="https://github.com/Harshad2321" target="_blank" class="btn btn-outline">
+                        <span>Visit My GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Certificates Section -->
+        <section id="certificates" class="certificates-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Certificates & Achievements</h2>
+                    <p class="section-subtitle">Recognition of my learning journey and accomplishments</p>
+                </div>
+                
+                <div class="certificates-grid" id="certContainer">
+                    <!-- Certificates will be dynamically loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="section-subtitle">Ready to bring your ideas to life</p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-text">
+                            <h3>Get In Touch</h3>
+                            <p>
+                                I'm always excited to work on new projects and collaborate with 
+                                fellow developers, designers, and entrepreneurs. Let's create something amazing together!
+                            </p>
+                        </div>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">@</div>
+                                <div class="method-info">
+                                    <h4>Email</h4>
+                                    <a href="mailto:harshadagrawal.dev@gmail.com">harshadagrawal.dev@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">#</div>
+                                <div class="method-info">
+                                    <h4>Phone</h4>
+                                    <a href="tel:+919876543210">+91 98765 43210</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">+</div>
+                                <div class="method-info">
+                                    <h4>Location</h4>
+                                    <span>India</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">~</div>
+                                <div class="method-info">
+                                    <h4>Response Time</h4>
+                                    <span>Within 24 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h4>Connect With Me</h4>
+                            <div class="social-grid">
+                                <a href="https://github.com/Harshad2321" target="_blank" class="social-link">
+                                    <img src="./LOGOS/github.png" alt="GitHub">
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/harshad-agrawal" target="_blank" class="social-link">
+                                    <img src="./LOGOS/linkedin.png" alt="LinkedIn">
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://leetcode.com/harshadagrawal" target="_blank" class="social-link">
+                                    <img src="./LOGOS/leetcode.png" alt="LeetCode">
+                                    <span>LeetCode</span>
+                                </a>
+                                <a href="https://hackerrank.com/harshadagrawal" target="_blank" class="social-link">
+                                    <img src="./LOGOS/hackerrank.png" alt="HackerRank">
+                                    <span>HackerRank</span>
+                                </a>
+                                <a href="mailto:harshadagrawal.dev@gmail.com" class="social-link">
+                                    <img src="./LOGOS/email.png" alt="Email">
+                                    <span>Email</span>
+                                </a>
+                                <a href="https://instagram.com/harshad.dev" target="_blank" class="social-link">
+                                    <img src="./LOGOS/insta.png" alt="Instagram">
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required rows="6" placeholder="Tell me about your project or how I can help you..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div id="modalTitle" class="modal-title"></div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="" class="modal-image">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Harshad Agrawal. All rights reserved.</p>
+                    <p>Built with passion using HTML, CSS & JavaScript</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="./Certificates/Harshad_Agrawal_Resume.pdf" target="_blank">Resume</a>
+                    <a href="https://github.com/Harshad2321/Myself" target="_blank">Source Code</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Loading Screen Script -->
+    <script>
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
