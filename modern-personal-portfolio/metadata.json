@@ -1,0 +1,5 @@
+{
+  "name": "Modern Personal Portfolio",
+  "description": "A sleek, minimalistic, and interactive personal portfolio website built with React, Tailwind CSS, and Framer Motion. It features smooth animations, a dark/light theme toggle, and a responsive design to showcase projects and skills.",
+  "requestFramePermissions": []
+}
