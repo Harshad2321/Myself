@@ -94,6 +94,7 @@ function initializeApp() {
     setupScrollAnimations();
     setupProjectFilters();
     setupCertificates();
+    setupCertificateFilters();
     setupContactForm();
     setupCounters();
     setupScrollIndicator();
@@ -717,10 +718,78 @@ window.addEventListener('error', (e) => {
     console.error('Portfolio Error:', e.error);
 });
 
+function openCertificate(path) {
+    const modal = document.getElementById('certificateModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImage = document.getElementById('modalImage');
+    
+    if (!modal || !modalTitle || !modalImage) return;
+    
+    const filename = path.split('/').pop();
+    modalTitle.textContent = filename.replace(/\.[^/.]+$/, "");
+    
+    if (path.endsWith('.pdf')) {
+        modalImage.style.display = 'none';
+        modalTitle.innerHTML = `
+            <h3>${filename.replace(/\.[^/.]+$/, "")}</h3>
+            <div style="margin-top: 20px;">
+                <a href="${path}" target="_blank" class="btn btn-primary">
+                    View Certificate (PDF)
+                </a>
+            </div>
+        `;
+    } else {
+        modalImage.src = path;
+        modalImage.style.display = 'block';
+        modalImage.alt = `${filename} Certificate`;
+    }
+    
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function setupCertificateFilters() {
+    const filterBtns = document.querySelectorAll('.cert-filter-btn');
+    const certCards = document.querySelectorAll('.cert-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filterValue = btn.getAttribute('data-filter');
+            
+            certCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'block';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(-20px)';
+                    
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
 window.portfolioDebug = {
     certificates,
     currentFilter,
     isLoaded,
     showNotification,
-    openCertificateModal
+    openCertificateModal,
+    openCertificate,
+    setupCertificateFilters
 };
