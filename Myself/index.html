@@ -1,0 +1,944 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshad Agrawal - Software Developer | AI/ML Enthusiast</title>
+    <meta name="description" content="Harshad Agrawal - Award-winning Software Developer & AI/ML Engineer. 2 Fast 2 Hack Winner, IIT programs alumnus. Specializing in full-stack development, machine learning, and cutting-edge web technologies. View my professional portfolio.">
+    <meta name="keywords" content="Harshad Agrawal, Software Developer, Full Stack, AI, ML, JavaScript, Python, Web Development">
+    <meta name="author" content="Harshad Agrawal">
+    <meta property="og:description" content="Full-stack developer specializing in AI/ML and modern web technologies">
+    <meta property="og:image" content="./LOGOS/profile-pic.png">
+    <meta property="og:url" content="https://harshad2321.github.io/Myself/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Harshad Agrawal - Software Developer">
+    <meta name="twitter:description" content="Full-stack developer specializing in AI/ML and modern web technologies">
+    <link rel="icon" type="image/x-icon" href="./LOGOS/profile-pic.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+    <header class="main-header">
+        <nav class="modern-nav">
+            <div class="nav-wrapper">
+                <div class="nav-brand">
+                    <a href="#home" class="brand-link">
+                        <div class="brand-logo">
+                            <span class="brand-initial">H</span>
+                        </div>
+                        <div class="brand-text">
+                            <span class="brand-name">Harshad</span>
+                            <span class="brand-role">Developer</span>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="nav-item active">Home</a></li>
+                        <li><a href="#about" class="nav-item">About</a></li>
+                        <li><a href="#experience" class="nav-item">Work</a></li>
+                        <li><a href="#projects" class="nav-item">Projects</a></li>
+                        <li><a href="#contact" class="nav-item">Contact</a></li>
+                    </ul>
+                </div>
+                    <a href="./Harshad_Agrawal_Resume.pdf" target="_blank" class="cta-btn">
+                        <span>Resume</span>
+                        <i>↗</i>
+                    </a>
+                    
+                    <button class="menu-btn" id="menuToggle">
+                        <div class="menu-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <h3>Navigation</h3>
+            <button class="mobile-close" id="mobileClose">✕</button>
+        </div>
+        
+        <nav class="mobile-nav-content">
+            <a href="#home" class="mobile-nav-item active">Home</a>
+            <a href="#about" class="mobile-nav-item">About</a>
+            <a href="#experience" class="mobile-nav-item">Experience</a>
+            <a href="#projects" class="mobile-nav-item">Projects</a>
+            <a href="#certificates" class="mobile-nav-item">Certificates</a>
+            <a href="#contact" class="mobile-nav-item">Contact</a>
+            
+            <div class="mobile-nav-footer">
+                <a href="./Harshad_Agrawal_Resume.pdf" target="_blank" class="mobile-resume">
+                    Download Resume ↗
+                </a>
+                <div class="mobile-socials">
+                    <a href="https://github.com/Harshad2321" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/harshad-agrawal" target="_blank">LinkedIn</a>
+                    <a href="https://leetcode.com/harshadagrawal" target="_blank">LeetCode</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="hero-grid"></div>
+                <div class="hero-particles"></div>
+            </div>
+            
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <span class="badge-text"> AI/ML Enthusiast</span>
+                        </div>
+                        
+                        <h1 class="hero-title">
+                            <span class="greeting">Hi, I'm</span>
+                            <span class="name">Harshad Agrawal</span>
+                            <span class="role">B.Tech AI/ML Student & Aspiring Developer</span>
+                        </h1>
+                        
+                        <div class="hero-description">
+                            <p class="main-desc">I create <span id="typed-text" class="typed-text"></span></p>
+                            <p class="sub-desc">
+                                B.Tech AI/ML student with experience in <strong>hackathon competitions</strong> • Currently learning 
+                                <strong>HTML, CSS, C Programming</strong> and <strong>AI/ML fundamentals</strong> • 
+                                Building projects and growing skills, one line of code at a time.
+                            </p>
+                        </div>
+                        
+                        <div class="hero-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon"></div>
+                                <div class="highlight-content">
+                                    <span class="highlight-number">30+</span>
+                                    <span class="highlight-label">Projects Built</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon"></div>
+                                <div class="highlight-content">
+                                    <span class="highlight-number">10+</span>
+                                    <span class="highlight-label">Certificates</span>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon"></div>
+                                <div class="highlight-content">
+                                    <span class="highlight-number">Always</span>
+                                    <span class="highlight-label">Learning</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary">
+                                <span> View My Work</span>
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <span> Let's Connect</span>
+                            </a>
+                            <a href="./Harshad_Agrawal_Resume.pdf" target="_blank" class="btn btn-outline">
+                                <span> Resume</span>
+                            </a>
+                        </div>
+                        
+                        <div class="social-proof">
+                            <p class="social-text">Connect with me:</p>
+                            <div class="social-links">
+                                <a href="https://github.com/Harshad2321" target="_blank" class="social-link" aria-label="GitHub Profile">
+                                    <img src="./LOGOS/github.png" alt="GitHub">
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/harshad-agrawal" target="_blank" class="social-link" aria-label="LinkedIn Profile">
+                                    <img src="./LOGOS/linkedin.png" alt="LinkedIn">
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://leetcode.com/harshadagrawal" target="_blank" class="social-link" aria-label="LeetCode Profile">
+                                    <img src="./LOGOS/leetcode.png" alt="LeetCode">
+                                    <span>LeetCode</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="profile-container">
+                            <div class="profile-glow"></div>
+                            <img src="./LOGOS/profile-pic.png" alt="Harshad Agrawal Profile Picture" class="profile-image">
+                            <div class="profile-border"></div>
+                        </div>
+                        
+                        <div class="floating-elements">
+                            <div class="floating-card" data-tech="AI/ML">AI</div>
+                            <div class="floating-card" data-tech="JavaScript">JS</div>
+                            <div class="floating-card" data-tech="Python">PY</div>
+                            <div class="floating-card" data-tech="React">RE</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow"></div>
+                    <span>Scroll to explore</span>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title">Building Tomorrow's Technology Today</h2>
+                    <p class="section-subtitle">From classroom learning to hands-on projects - developing digital skills</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-story">
+                        <div class="story-highlight">
+                            <div class="highlight-badge">My Journey</div>
+                            <h3>From Code to Impact</h3>
+                            <p>
+                                B.Tech AI/ML student with hands-on experience in <strong>hackathon participation</strong> and 
+                                <strong>competitive programming</strong>. Currently learning through various online courses and 
+                                <strong>certificate programs</strong>, I'm transforming from a curious beginner into 
+                                a skilled developer building meaningful projects.
+                            </p>
+                        </div>
+                        
+                        <div class="achievements-grid">
+                            <div class="achievement-card">
+                                <div class="achievement-icon"></div>
+                                <h4>Competition Winner</h4>
+                                <p>5+ national hackathon victories including prestigious IIT competitions</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-icon"></div>
+                                <h4>Elite Programs</h4>
+                                <p>Campus Ambassador at eDC IIT Roorkee & EXERGY IIT Kanpur participant</p>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-icon"></div>
+                                <h4>Full-Stack Expert</h4>
+                                <p>AI/ML specialist with 100% project success rate in production systems</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <div class="stack-header">
+                            <h3>Tech Arsenal</h3>
+                            <p>Technologies I'm learning and working with</p>
+                        </div>
+                        
+                        <div class="tech-categories">
+                            <div class="tech-category">
+                                <div class="category-header">
+                                    <span class="category-icon"></span>
+                                    <h4>Programming Languages</h4>
+                                </div>
+                                <div class="tech-grid">
+                                    <div class="tech-item featured">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">Python</span>
+                                        <span class="tech-level">Advanced</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">C</span>
+                                        <span class="tech-level">Intermediate</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">JavaScript</span>
+                                        <span class="tech-level">Intermediate</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">R</span>
+                                        <span class="tech-level">Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <div class="category-header">
+                                    <span class="category-icon"></span>
+                                    <h4>Web Development</h4>
+                                </div>
+                                <div class="tech-grid">
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">HTML5</span>
+                                        <span class="tech-level">Advanced</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">CSS3</span>
+                                        <span class="tech-level">Intermediate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <div class="category-header">
+                                    <span class="category-icon"></span>
+                                    <h4>Database Technologies</h4>
+                                </div>
+                                <div class="tech-grid">
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">MySQL</span>
+                                        <span class="tech-level">Beginner</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">MongoDB</span>
+                                        <span class="tech-level">Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <div class="category-header">
+                                    <span class="category-icon"></span>
+                                    <h4>AI/ML & Data Science</h4>
+                                </div>
+                                <div class="tech-grid">
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">TensorFlow</span>
+                                        <span class="tech-level">Intermediate</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">Scikit-Learn</span>
+                                        <span class="tech-level">Intermediate</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">Pandas</span>
+                                        <span class="tech-level">Intermediate</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <div class="category-header">
+                                    <span class="category-icon"></span>
+                                    <h4>Development Tools</h4>
+                                </div>
+                                <div class="tech-grid">
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">Git</span>
+                                        <span class="tech-level">Intermediate</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">Operating Systems</span>
+                                        <span class="tech-level">Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <div class="category-header">
+                                    <span class="category-icon"></span>
+                                    <h4>Security & Other Skills</h4>
+                                </div>
+                                <div class="tech-grid">
+                                    <div class="tech-item">
+                                        <span class="tech-logo"></span>
+                                        <span class="tech-name">Cybersecurity</span>
+                                        <span class="tech-level">Beginner</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Experience & Education</h2>
+                    <p class="section-subtitle">My journey in technology and learning</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">August 2024 - Present</div>
+                            <h3>Bachelor of Technology</h3>
+                            <p class="timeline-company">Computer Science & Engineering</p>
+                            <p>Currently pursuing B.Tech in Computer Science & Engineering, focusing on software development, data structures, algorithms, and emerging technologies. Actively participating in hackathons and technical competitions while maintaining excellent academic performance.</p>
+                            <div class="timeline-skills">
+                                <span>Computer Science</span>
+                                <span>Software Engineering</span>
+                                <span>Data Structures</span>
+                                <span>Algorithms</span>
+                                <span>Problem Solving</span>
+                                <span>Team Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Some of my best work showcasing various technologies</p>
+                </div>
+                
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="ai">AI/ML</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card" data-category="ai web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji"></span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://github.com/Harshad2321/AgriSakha" target="_blank" class="project-btn" aria-label="View Project">View</a>
+                                    <a href="https://github.com/Harshad2321/AgriSakha" target="_blank" class="project-btn" aria-label="View Code">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3> AgriSakha - Smart Agriculture Platform</h3>
+                            <p><strong>Award-winning AI-powered platform</strong> providing personalized, real-time crop advisory with <strong>voice-first and offline-first design</strong>. Multilingual support for farmers with advanced ML algorithms.</p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>AI/ML</span>
+                                <span>Voice Tech</span>
+                                <span>Mobile-First</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji"></span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-" target="_blank" class="project-btn" aria-label="View Project">View</a>
+                                    <a href="https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-" target="_blank" class="project-btn" aria-label="View Code">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>NASA Exoplanet Classifier</h3>
+                            <p><strong>Advanced machine learning model</strong> for classifying exoplanets using NASA's KOI, K2, and TESS datasets. Implements deep learning algorithms for <strong>space data analysis</strong>.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>TensorFlow</span>
+                                <span>NASA APIs</span>
+                                <span>Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="ai web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji"></span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://github.com/Harshad2321/Legal-AI-Simplifier" target="_blank" class="project-btn" aria-label="View Project">View</a>
+                                    <a href="https://github.com/Harshad2321/Legal-AI-Simplifier" target="_blank" class="project-btn" aria-label="View Code">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Legal AI Simplifier</h3>
+                            <p><strong>AI-powered legal document analyzer</strong> that simplifies complex legal language using NLP. Makes legal documents accessible to everyone with <strong>intelligent summarization</strong>.</p>
+                            <div class="project-tech">
+                                <span>TypeScript</span>
+                                <span>NLP</span>
+                                <span>React</span>
+                                <span>AI/ML</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji"></span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://github.com/Harshad2321/Netflix-UI-Clone" target="_blank" class="project-btn" aria-label="View Project">View</a>
+                                    <a href="https://github.com/Harshad2321/Netflix-UI-Clone" target="_blank" class="project-btn" aria-label="View Code">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Netflix UI Clone</h3>
+                            <p><strong>Pixel-perfect responsive Netflix landing page</strong> built with modern HTML & CSS. Features smooth animations, hover effects, and <strong>mobile-first design</strong>.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>Responsive</span>
+                                <span>Animations</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="ai web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji"></span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://github.com/Harshad2321/EduQuizAI" target="_blank" class="project-btn" aria-label="View Project">View</a>
+                                    <a href="https://github.com/Harshad2321/EduQuizAI" target="_blank" class="project-btn" aria-label="View Code">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3> EduQuizAI - Smart Quiz Generator</h3>
+                            <p><strong>Hackathon-winning</strong> AI-powered quiz generator built during college hackathon. Features <strong>note-based quiz creation, dark mode, and timer functionality</strong> using modern web technologies.</p>
+                            <div class="project-tech">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>AI Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji"></span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://github.com/Harshad2321/ByteNotes" target="_blank" class="project-btn" aria-label="View Project">View</a>
+                                    <a href="https://github.com/Harshad2321/ByteNotes" target="_blank" class="project-btn" aria-label="View Code">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>ByteNotes - Smart Note Taking</h3>
+                            <p><strong>Modern note-taking application</strong> built with TypeScript. Features real-time sync, markdown support, and <strong>intelligent organization</strong> for enhanced productivity.</p>
+                            <div class="project-tech">
+                                <span>TypeScript</span>
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" data-category="ai">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span class="project-emoji">🔬</span>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://github.com/Harshad2321/digital-twin-stress-monitoring" target="_blank" class="project-btn" aria-label="View Project">View</a>
+                                    <a href="https://github.com/Harshad2321/digital-twin-stress-monitoring" target="_blank" class="project-btn" aria-label="View Code">Code</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3> Digital Twin Stress Monitor</h3>
+                            <p><strong>Advanced IoT project</strong> using digital twin technology for real-time stress monitoring. Combines <strong>sensor data with ML algorithms</strong> for predictive health analytics.</p>
+                            <div class="project-tech">
+                                <span>Jupyter</span>
+                                <span>IoT</span>
+                                <span>Machine Learning</span>
+                                <span>Data Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projects-cta">
+                    <p>Want to see more projects?</p>
+                    <a href="https://github.com/Harshad2321" target="_blank" class="btn btn-outline">
+                        <span>Visit My GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    
+        <section id="certificates" class="certificates-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Certificates & Achievements</h2>
+                    <p class="section-subtitle">Recognition of my learning journey and accomplishments</p>
+                </div>
+                
+                <div class="certificates-grid" id="certContainer">
+
+                    <div class="certificate-card featured">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/2 FAST 2 HACK.pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>2 Fast 2 Hack Winner</h3>
+                            <p class="cert-issuer">National Hackathon Competition</p>
+                            <span class="cert-year">2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card featured">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/Offer Letter (IIT ROORKEE).pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>IIT Roorkee Selection</h3>
+                            <p class="cert-issuer">Indian Institute of Technology</p>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+
+
+                    <div class="certificate-card featured">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/OFFER LETTER IIT KANPUR.pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>IIT Kanpur Selection</h3>
+                            <p class="cert-issuer">Indian Institute of Technology</p>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/Campus_Ambassador_Offer_Letter_eDC.pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>Campus Ambassador</h3>
+                            <p class="cert-issuer">eDC IIT Roorkee</p>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+
+
+                    <div class="certificate-card">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/Troubleshoot Ideathon 2025.pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>Troubleshoot Ideathon</h3>
+                            <p class="cert-issuer">Innovation Competition</p>
+                            <span class="cert-year">2025</span>
+                        </div>
+                    </div>
+
+
+                    <div class="certificate-card">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/Basic Of AI-ML.pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>Basics of AI/ML</h3>
+                            <p class="cert-issuer">Machine Learning Course</p>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+                 
+
+                    <div class="certificate-card">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/Harshad Agrawal Python(simplilearn).pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>Python Programming</h3>
+                            <p class="cert-issuer">Simplilearn</p>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+
+                    <div class="certificate-card">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">�</div>
+                                    <span>View Certificate</span>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/Harshad Agrawal_Data Structures & Algorithms Course For Beginners.pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>Data Structures & Algorithms</h3>
+                            <p class="cert-issuer">Professional Course</p>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certificate-card">
+                        <div class="cert-preview">
+                            <div class="cert-thumbnail">
+                                <div class="pdf-preview">
+                                    <div class="pdf-icon">PDF</div>
+                                </div>
+                            </div>
+                            <div class="cert-overlay">
+                                <button class="cert-action-btn" onclick="event.stopPropagation(); downloadCert('./Certificates/Hedera Certification.pdf')">Download</button>
+                            </div>
+                        </div>
+                        <div class="cert-info">
+                            <h3>Hedera Blockchain</h3>
+                            <p class="cert-issuer">Hedera Network</p>
+                            <span class="cert-year">2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="section-subtitle">Ready to bring your ideas to life</p>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-text">
+                            <h3>Get In Touch</h3>
+                            <p>
+                                I'm always excited to work on new projects and collaborate with 
+                                fellow developers, designers, and entrepreneurs. Let's create something amazing together!
+                            </p>
+                        </div>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">@</div>
+                                <div class="method-info">
+                                    <h4>Email</h4>
+                                    <a href="mailto:harshad.agrawal2005@gmail.com">harshad.agrawal2005@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">#</div>
+                                <div class="method-info">
+                                    <h4>Phone</h4>
+                                    <a href="tel:+917622871384">+91 7622871384</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">+</div>
+                                <div class="method-info">
+                                    <h4>Location</h4>
+                                    <span>India</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">~</div>
+                                <div class="method-info">
+                                    <h4>Response Time</h4>
+                                    <span>Within 1 hour</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h4>Connect With Me</h4>
+                            <div class="social-grid">
+                                <a href="https://github.com/Harshad2321" target="_blank" class="social-link">
+                                    <img src="./LOGOS/github.png" alt="GitHub">
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/harshad-agrawal" target="_blank" class="social-link">
+                                    <img src="./LOGOS/linkedin.png" alt="LinkedIn">
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://leetcode.com/harshadagrawal" target="_blank" class="social-link">
+                                    <img src="./LOGOS/leetcode.png" alt="LeetCode">
+                                    <span>LeetCode</span>
+                                </a>
+                                <a href="https://www.hackerrank.com/profile/harshad_agrawal1" target="_blank" class="social-link">
+                                    <img src="./LOGOS/hackerrank.png" alt="HackerRank">
+                                    <span>HackerRank</span>
+                                </a>
+                                <a href="mailto:harshad.agrawal2005@gmail.com" class="social-link">
+                                    <img src="./LOGOS/email.png" alt="Email">
+                                    <span>Email</span>
+                                </a>
+                                <a href="https://www.instagram.com/harshad_agrawal_2005/" target="_blank" class="social-link">
+                                    <img src="./LOGOS/insta.png" alt="Instagram">
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required rows="6" placeholder="Tell me about your project or how I can help you..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-center">
+                    <h4>Connect With Me</h4>
+                    <div class="footer-links-row">
+                        <a href="https://github.com/Harshad2321" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/harshad-agrawal" target="_blank">LinkedIn</a>
+                        <a href="https://leetcode.com/harshadagrawal" target="_blank">LeetCode</a>
+                        <a href="https://www.hackerrank.com/profile/harshad_agrawal1" target="_blank">HackerRank</a>
+                        <a href="mailto:harshad.agrawal2005@gmail.com">Email</a>
+                        <a href="https://www.instagram.com/harshad_agrawal_2005/" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Harshad Agrawal • Aspiring AI/ML Engineer</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/Harshad2321" target="_blank" title="GitHub">
+                        <img src="./LOGOS/github.png" alt="GitHub" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="https://linkedin.com/in/harshad-agrawal" target="_blank" title="LinkedIn">
+                        <img src="./LOGOS/linkedin.png" alt="LinkedIn" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="https://leetcode.com/harshadagrawal" target="_blank" title="LeetCode">
+                        <img src="./LOGOS/leetcode.png" alt="LeetCode" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="https://www.hackerrank.com/profile/harshad_agrawal1" target="_blank" title="HackerRank">
+                        <img src="./LOGOS/hackerrank.png" alt="HackerRank" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="mailto:harshad.agrawal2005@gmail.com" title="Email">
+                        <img src="./LOGOS/email.png" alt="Email" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="https://www.instagram.com/harshad_agrawal_2005/" target="_blank" title="Instagram">
+                        <img src="./LOGOS/insta.png" alt="Instagram" style="width: 20px; height: 20px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
