@@ -60,14 +60,12 @@ const VirtualGarden = () => {
     <div className="min-h-screen relative overflow-hidden">
       <Navbar patientId={id} showNavigation={true} />
       
-      {/* Garden Background */}
       <div 
         className="fixed inset-0 -z-10"
         style={{
           background: 'linear-gradient(to bottom, #87CEEB 0%, #B8E6D5 50%, #90EE90 100%)',
         }}
       >
-        {/* Animated clouds */}
         <motion.div
           className="absolute top-10 w-32 h-16 bg-white/60 rounded-full blur-sm"
           animate={{ x: [-100, 1400] }}
@@ -100,7 +98,6 @@ const VirtualGarden = () => {
           </p>
         </motion.div>
 
-        {/* Garden Interactive Area */}
         <motion.div 
           className="relative h-[600px] glass-card overflow-hidden"
           style={{
@@ -110,10 +107,8 @@ const VirtualGarden = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          {/* Ground */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-green-700/40 to-transparent" />
 
-          {/* Garden Items */}
           {gardenItems.map((item, index) => {
             const Icon = item.icon
             return (
@@ -142,12 +137,10 @@ const VirtualGarden = () => {
             )
           })}
 
-          {/* Decorative elements */}
           <div className="absolute bottom-8 left-10 w-24 h-24 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-full blur-xl opacity-30 animate-pulse-soft" />
           <div className="absolute bottom-12 right-20 w-32 h-32 bg-gradient-to-br from-pink-300 to-pink-500 rounded-full blur-xl opacity-30 animate-pulse-soft" />
         </motion.div>
 
-        {/* Return Button */}
         <motion.button
           onClick={() => navigate(`/patient/${id}`)}
           className="fixed bottom-8 right-8 btn-primary flex items-center gap-2 shadow-2xl"
@@ -161,7 +154,6 @@ const VirtualGarden = () => {
         </motion.button>
       </motion.div>
 
-      {/* Memory Modal */}
       {selectedMemory && (
         <motion.div 
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-6"
@@ -230,3 +222,4 @@ const VirtualGarden = () => {
 }
 
 export default VirtualGarden
+

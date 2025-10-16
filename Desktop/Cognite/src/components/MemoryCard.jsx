@@ -43,3 +43,4 @@ const MemoryCard = ({ memory, onClick }) => {
 }
 
 export default MemoryCard
+

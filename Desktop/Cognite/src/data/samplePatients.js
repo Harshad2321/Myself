@@ -215,3 +215,4 @@ export const emotionColors = {
   "Triumph": "#FFA500",
   "Pride": "#D4A017"
 };
+

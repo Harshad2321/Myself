@@ -42,3 +42,4 @@ const ChartMock = ({ data, title }) => {
 }
 
 export default ChartMock
+

@@ -76,7 +76,6 @@ const FamilyPortal = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Upload Form */}
           <motion.div
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -87,8 +86,6 @@ const FamilyPortal = () => {
                 <Upload className="w-7 h-7 text-cognite-purple" />
                 Upload New Memory
               </h2>
-
-              {/* Image Upload */}
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold mb-2">
                   <ImageIcon className="w-5 h-5 inline mr-2" />
@@ -131,8 +128,6 @@ const FamilyPortal = () => {
                   </label>
                 </div>
               </div>
-
-              {/* Title */}
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold mb-2">
                   <Type className="w-5 h-5 inline mr-2" />
@@ -147,8 +142,6 @@ const FamilyPortal = () => {
                   required
                 />
               </div>
-
-              {/* Description */}
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold mb-2">
                   Description
@@ -162,8 +155,6 @@ const FamilyPortal = () => {
                   required
                 />
               </div>
-
-              {/* Emotion Tag */}
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold mb-2">
                   <Heart className="w-5 h-5 inline mr-2" />
@@ -179,8 +170,6 @@ const FamilyPortal = () => {
                   ))}
                 </select>
               </div>
-
-              {/* Decade */}
               <div className="mb-6">
                 <label className="block text-gray-700 font-semibold mb-2">
                   Time Period
@@ -199,8 +188,6 @@ const FamilyPortal = () => {
                   <option value="2010s">2010s</option>
                 </select>
               </div>
-
-              {/* Submit Button */}
               <button 
                 type="submit"
                 className="btn-primary w-full flex items-center justify-center gap-2"
@@ -214,8 +201,6 @@ const FamilyPortal = () => {
               </p>
             </form>
           </motion.div>
-
-          {/* Recently Uploaded */}
           <motion.div
             initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -255,8 +240,6 @@ const FamilyPortal = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Guidelines Section */}
         <motion.div 
           className="mt-12 glass-card p-8"
           initial={{ y: 30, opacity: 0 }}
@@ -295,8 +278,6 @@ const FamilyPortal = () => {
           </div>
         </motion.div>
       </motion.div>
-
-      {/* Success Modal */}
       {showSuccess && (
         <motion.div 
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-6"
@@ -334,3 +315,4 @@ const FamilyPortal = () => {
 }
 
 export default FamilyPortal
+

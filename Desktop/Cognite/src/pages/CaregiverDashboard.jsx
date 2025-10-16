@@ -46,7 +46,6 @@ const CaregiverDashboard = () => {
           </p>
         </motion.div>
 
-        {/* Summary Cards */}
         <motion.div 
           className="grid md:grid-cols-3 gap-6 mb-12"
           initial={{ y: 30, opacity: 0 }}
@@ -87,7 +86,6 @@ const CaregiverDashboard = () => {
           </div>
         </motion.div>
 
-        {/* Emotional Trend Chart */}
         <motion.div 
           className="mb-12"
           initial={{ y: 30, opacity: 0 }}
@@ -98,7 +96,6 @@ const CaregiverDashboard = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Sessions Table */}
           <motion.div 
             className="lg:col-span-2"
             initial={{ x: -30, opacity: 0 }}
@@ -159,7 +156,6 @@ const CaregiverDashboard = () => {
             </div>
           </motion.div>
 
-          {/* Patient Quick Links */}
           <motion.div
             initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -199,7 +195,6 @@ const CaregiverDashboard = () => {
           </motion.div>
         </div>
 
-        {/* Insights Section */}
         <motion.div 
           className="mt-12 glass-card p-8"
           initial={{ y: 30, opacity: 0 }}
@@ -234,3 +229,4 @@ const CaregiverDashboard = () => {
 }
 
 export default CaregiverDashboard
+

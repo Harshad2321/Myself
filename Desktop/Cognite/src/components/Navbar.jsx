@@ -50,3 +50,4 @@ const Navbar = ({ patientId, showNavigation = false }) => {
 }
 
 export default Navbar
+

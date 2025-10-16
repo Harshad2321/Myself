@@ -18,3 +18,4 @@ const EmotionTag = ({ emotion }) => {
 }
 
 export default EmotionTag
+
