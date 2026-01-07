@@ -2,7 +2,6 @@
 
 A modern, responsive portfolio website showcasing my projects, skills, and achievements in Agentic AI, Machine Learning, and Backend Development.
 
-[![Deploy to GitHub Pages](https://github.com/Harshad2321/myself/actions/workflows/deploy.yml/badge.svg)](https://github.com/Harshad2321/myself/actions/workflows/deploy.yml)
 
 ##  Live Demo
 
@@ -14,18 +13,9 @@ I'm Harshad Agrawal, a 2nd-year AI & ML student at Symbiosis Institute of Techno
 
 -  Currently working on AI-ML projects and web development
 -  Learning Deep Learning, Advanced ML algorithms, and Cloud Architecture
--  Goal: Build a Jarvis-like AI assistant
--  6+ Hackathons participated including NASA Space Apps Challenge
+-  8+ Hackathons participated including NASA Space Apps Challenge
 -  Email: harshad.agrawal2005@gmail.com
 
-## Features
-
-- **Modern Design**: Clean, responsive UI with dark/light theme toggle
-- **Project Showcase**: 8 featured projects with live demos
-- **Skills Display**: Comprehensive tech stack and tools
-- **Certificates**: 10+ certifications and achievements
-- **Interactive**: Smooth animations and user-friendly navigation
-- **Fast Loading**: Optimized performance with Next.js
 
 ##  Built With
 
@@ -113,12 +103,6 @@ Symbiosis Institute of Technology, Pune
 ##  License
 
 This project is open source and available under the MIT License.
-
-##  Acknowledgments
-
-- Next.js team for the amazing framework
-- GitHub Pages for hosting
-- All open-source contributors
 
 ---
 
