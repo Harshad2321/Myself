@@ -1,9 +1,6 @@
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     remotePatterns: [
       {
@@ -16,10 +13,6 @@ const nextConfig = {
       },
     ],
   },
-  basePath: isProd ? '/Myself' : '',
-  assetPrefix: isProd ? '/Myself/' : '',
-  output: 'export',
-  trailingSlash: true,
 }
 
 module.exports = nextConfig

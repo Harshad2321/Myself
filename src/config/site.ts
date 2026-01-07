@@ -14,7 +14,7 @@ When I'm not coding, you'll find me exploring new technologies, contributing to 
   instagram: 'https://www.instagram.com/harshad_agrawal_2005/',
   leetcode: 'https://leetcode.com/u/harshadagrawal/',
   hackerrank: 'https://www.hackerrank.com/profile/harshad_agrawal1',
-  website: 'https://harshad2321.github.io/Myself/',
+  website: 'https://myself-chi-mauve.vercel.app',
 
   resumeUrl: '/resume.pdf',
 

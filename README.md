@@ -6,7 +6,7 @@ A modern, responsive portfolio website showcasing my projects, skills, and achie
 
 ##  Live Demo
 
-Visit my portfolio: [https://harshad2321.github.io/Myself/](https://harshad2321.github.io/Myself/)
+Visit my portfolio: [https://myself-chi-mauve.vercel.app](https://myself-chi-mauve.vercel.app)
 
 ##  About Me
 
