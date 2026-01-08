@@ -18,7 +18,7 @@ export default function Certificates() {
       : certificatesData.filter((cert) => cert.category === selectedCategory);
 
   const slides = filteredCertificates.map((cert) => ({
-    src: `${process.env.NODE_ENV === 'production' ? '/Myself' : ''}/certificates/${cert.filename}`,
+    src: `/certificates/${cert.filename}`,
     alt: cert.title,
   }));
 
@@ -28,10 +28,9 @@ export default function Certificates() {
   };
 
   const downloadAllCertificates = () => {
-    const basePath = process.env.NODE_ENV === 'production' ? '/Myself' : '';
     filteredCertificates.forEach((cert) => {
       const link = document.createElement('a');
-      link.href = `${basePath}/certificates/${cert.filename}`;
+      link.href = `/certificates/${cert.filename}`;
       link.download = cert.filename;
       document.body.appendChild(link);
       link.click();
@@ -106,7 +105,7 @@ export default function Certificates() {
               {/* Certificate Image */}
               <div className="relative mb-3 aspect-video overflow-hidden rounded-lg bg-dark-border">
                 <img
-                  src={`${process.env.NODE_ENV === 'production' ? '/Myself' : ''}/certificates/${cert.filename}`}
+                  src={`/certificates/${cert.filename}`}
                   alt={cert.title}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />

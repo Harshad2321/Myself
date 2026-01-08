@@ -142,7 +142,7 @@ export default function Hero() {
               <ArrowDown className="ml-2 inline-block h-5 w-5 transition-transform group-hover:translate-y-1" />
             </a>
             <a
-              href={`${process.env.NODE_ENV === 'production' ? '/Myself' : ''}${siteConfig.resumeUrl}`}
+              href={siteConfig.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="glass-button px-8 py-3 font-semibold transition-colors hover:bg-accent-primary/20"

@@ -91,7 +91,7 @@ export default function Projects() {
               <div className="mb-4 h-48 overflow-hidden rounded-lg bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20">
                 {project.image ? (
                   <img
-                    src={`${process.env.NODE_ENV === 'production' ? '/Myself' : ''}${project.image}`}
+                    src={project.image}
                     alt={project.title}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
