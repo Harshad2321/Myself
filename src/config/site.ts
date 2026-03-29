@@ -16,7 +16,7 @@ When I'm not coding, you'll find me exploring new technologies, contributing to 
   hackerrank: 'https://www.hackerrank.com/profile/harshad_agrawal1',
   website: 'https://myself-chi-mauve.vercel.app',
 
-  resumeUrl: 'https://drive.google.com/file/d/1LsKRW7FS0bJkCbpnxJ0TyI4_e5xP7iU3/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/1CxGXhv3cIGnhsKNZW6PkeUJ4Y4PgXp0Z/view?usp=sharing',
 
   theme: {
     default: 'dark',
