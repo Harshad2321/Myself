@@ -1,0 +1,84 @@
+{
+  "login": "Harshad2321",
+  "publicRepos": 24,
+  "followers": 11,
+  "stars": 13,
+  "topLanguages": [
+    {
+      "name": "Python",
+      "pct": 89
+    },
+    {
+      "name": "HTML",
+      "pct": 5
+    },
+    {
+      "name": "Jupyter Notebook",
+      "pct": 4
+    },
+    {
+      "name": "TypeScript",
+      "pct": 3
+    },
+    {
+      "name": "JavaScript",
+      "pct": 0
+    },
+    {
+      "name": "Java",
+      "pct": 0
+    }
+  ],
+  "calendar": null,
+  "recentRepos": [
+    {
+      "name": "A-Ray-of-Hope-LMS",
+      "description": "A full-stack Learning Management System built for A Ray of Hope Charitable Trust with Node.js, Express, SQLite, React, Vite, and Tailwind CSS.",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-10-23T19:39:44Z",
+      "url": "https://github.com/Harshad2321/A-Ray-of-Hope-LMS"
+    },
+    {
+      "name": "Myself",
+      "description": null,
+      "language": "TypeScript",
+      "stars": 1,
+      "pushedAt": "2026-10-23T19:19:34Z",
+      "url": "https://github.com/Harshad2321/Myself"
+    },
+    {
+      "name": "Harshad2321",
+      "description": null,
+      "language": null,
+      "stars": 1,
+      "pushedAt": "2026-10-23T13:18:20Z",
+      "url": "https://github.com/Harshad2321/Harshad2321"
+    },
+    {
+      "name": "Network-Blog",
+      "description": null,
+      "language": "HTML",
+      "stars": 0,
+      "pushedAt": "2026-10-20T11:59:57Z",
+      "url": "https://github.com/Harshad2321/Network-Blog"
+    },
+    {
+      "name": "JanSetu-AI",
+      "description": "Multi-agent civic incident platform built with React, FastAPI, and LangGraph. Combines NLP/vision triage, geospatial duplicate detection, explainable prioritization, adaptive recovery, and evidence-gated simulated resolution.",
+      "language": "Python",
+      "stars": 0,
+      "pushedAt": "2026-10-19T14:31:53Z",
+      "url": "https://github.com/Harshad2321/JanSetu-AI"
+    },
+    {
+      "name": "ReShare",
+      "description": null,
+      "language": null,
+      "stars": 0,
+      "pushedAt": "2026-10-15T12:14:18Z",
+      "url": "https://github.com/Harshad2321/ReShare"
+    }
+  ],
+  "fetchedAt": "2026-10-23T19:52:42.615Z"
+}

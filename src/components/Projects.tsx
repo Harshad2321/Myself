@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, Lock, ShieldCheck } from "lucide-react";
+import { CheckCircle2, ExternalLink, Lock, ShieldCheck } from "lucide-react";
 import {
   featuredProjects,
   githubProjects,
@@ -14,31 +14,44 @@ import { GithubIcon } from "./icons";
 import { Reveal, Section } from "./primitives";
 import { hapticTap } from "../lib/haptics";
 
-// Rarity tags color-code the category (not a quality claim). Flat fills keep
-// near-black text readable in both themes.
-const rarity: Record<string, { fill: string; label: string }> = {
-  "GenAI/Agents": { fill: "fill-pink", label: "GENAI · AGENTS" },
-  "ML/DL": { fill: "fill-sky", label: "ML / DL" },
-  "Data/Analytics": { fill: "fill-yellow", label: "DATA" },
-  "Full-stack/Web": { fill: "fill-mint", label: "FULL-STACK" },
-  Hackathon: { fill: "fill-gold", label: "HACKATHON" },
-  PRIVATE: { fill: "fill-lav", label: "PRIVATE" },
-};
-
-function RarityTag({ tag }: { tag: string }) {
-  const r = rarity[tag];
-  if (!r) return null;
+// Category tags stay monochrome terminal tags — color coding by "rarity" was
+// v1/v2 flavor; v3 keeps one accent and lets the text carry the meaning.
+function CategoryTag({ tag }: { tag: string }) {
   return (
-    <span
-      className={`inline-flex items-center gap-1 rounded-lg border-2 border-inkline px-2 py-0.5 font-mono text-[10px] font-bold text-[#17130b] shadow-[2px_2px_0_var(--c-hard)] ${r.fill}`}
-    >
+    <span className="inline-flex items-center gap-1 rounded-lg border-2 border-inkline bg-card px-2 py-0.5 font-mono text-[10px] font-bold text-[#17130b] shadow-[2px_2px_0_var(--c-hard)]">
       {tag === "PRIVATE" && <Lock className="size-3" aria-hidden="true" />}
-      {r.label}
+      {tag}
     </span>
   );
 }
 
-const stripFills = ["fill-sky", "fill-pink", "fill-yellow", "fill-mint", "fill-lav", "fill-gold"];
+// Build/CI status chip — only where content actually backs it: the 194-test
+// Pytest suite (JanSetu AI) and the GitHub Actions daily refresh (NSE).
+function BuildStatus({ project }: { project: (typeof featuredProjects)[number] }) {
+  if (project.bullets.some((b) => b.includes("194-test"))) {
+    return (
+      <span
+        className="inline-flex items-center gap-1.5 rounded-lg border-2 border-inkline bg-accentfill px-2 py-0.5 font-mono text-[10px] font-bold text-[#17130b] shadow-[2px_2px_0_var(--c-hard)]"
+        title="194-test Pytest suite enforced by 11 system invariants"
+      >
+        <CheckCircle2 className="size-3.5" aria-hidden="true" />
+        build: passing · 194 tests
+      </span>
+    );
+  }
+  if (project.tech.includes("GitHub Actions")) {
+    return (
+      <span
+        className="inline-flex items-center gap-1.5 rounded-lg border-2 border-inkline bg-card px-2 py-0.5 font-mono text-[10px] font-bold text-[#17130b] shadow-[2px_2px_0_var(--c-hard)]"
+        title="Daily data refresh via GitHub Actions"
+      >
+        <CheckCircle2 className="size-3.5" aria-hidden="true" />
+        ci: github-actions
+      </span>
+    );
+  }
+  return null;
+}
 
 function FeaturedCard({
   project,
@@ -47,22 +60,18 @@ function FeaturedCard({
   project: (typeof featuredProjects)[number];
   index: number;
 }) {
-  const stripFill = stripFills[index % stripFills.length];
   return (
     <article className="card lift flex h-full flex-col">
-      <div
-        className={`flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-t-[17px] border-b-[3px] border-inkline px-5 py-3 sm:px-7 ${stripFill}`}
-      >
-        <p className="font-mono text-xs font-bold tracking-wider text-[#17130b]">
-          QUEST · {project.year}
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-t-[17px] border-b-[3px] border-inkline bg-[#17130b] px-5 py-3 sm:px-7">
+        <p className="font-mono text-xs font-bold tracking-wider text-[#f2efe8]">
+          <span className="text-accent">$</span> quest · {project.year}
         </p>
-        <ul className="flex flex-wrap gap-1.5" aria-label="Project categories">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <BuildStatus project={project} />
           {project.tags.slice(0, 2).map((tag) => (
-            <li key={tag}>
-              <RarityTag tag={tag} />
-            </li>
+            <CategoryTag key={tag} tag={tag} />
           ))}
-        </ul>
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col p-6 sm:p-8">
@@ -98,7 +107,7 @@ function FeaturedCard({
               key={bullet.slice(0, 48)}
               className="flex gap-3 text-sm font-medium leading-relaxed text-[#45403a] sm:text-base"
             >
-              <span className="mt-2 size-2 shrink-0 rounded-[2px] bg-inkline" aria-hidden="true" />
+              <span className="mt-2 size-2 shrink-0 rounded-[2px] bg-accentfill" aria-hidden="true" />
               {bullet}
             </li>
           ))}
@@ -117,7 +126,7 @@ function FeaturedCard({
           </p>
         )}
 
-        <ul className="loadout mt-5 flex flex-wrap gap-2 border-t-2 border-dashed border-[#17130b]/20 pt-5">
+        <ul className="mt-5 flex flex-wrap gap-2 border-t-2 border-dashed border-[#17130b]/20 pt-5">
           {project.tech.map((tech, i) => (
             <li
               key={tech}
@@ -129,6 +138,7 @@ function FeaturedCard({
           ))}
         </ul>
       </div>
+      <span className="sr-only">{`Featured project ${index + 1}`}</span>
     </article>
   );
 }
@@ -148,7 +158,7 @@ function SmallCard({ project }: { project: GithubProject }) {
           {project.name}
         </h4>
         {project.isPrivate ? (
-          <RarityTag tag="PRIVATE" />
+          <CategoryTag tag="PRIVATE" />
         ) : project.url ? (
           <a
             href={project.url}
@@ -187,7 +197,7 @@ function SmallCard({ project }: { project: GithubProject }) {
           </a>
         )}
         {project.tags.map((tag) => (
-          <RarityTag key={tag} tag={tag} />
+          <CategoryTag key={tag} tag={tag} />
         ))}
       </div>
     </motion.article>
@@ -204,7 +214,7 @@ export function Projects() {
   );
 
   return (
-    <Section id="projects" index="04" kicker="what I have built" title="Projects" tone="b">
+    <Section id="projects" index="04" cmd="ls -la ~/projects" title="Projects">
       <Reveal>
         <h3 className="font-display text-xl uppercase text-ink sm:text-2xl">Featured projects</h3>
       </Reveal>
@@ -218,7 +228,7 @@ export function Projects() {
 
       <Reveal className="mt-16">
         <h3 className="font-display text-xl uppercase text-ink sm:text-2xl">More from GitHub</h3>
-        <p className="mt-1.5 text-sm font-semibold text-ink/80">
+        <p className="mt-1.5 text-sm font-semibold text-muted">
           Repositories, private case studies, and open-source contributions.
         </p>
       </Reveal>
@@ -240,7 +250,7 @@ export function Projects() {
                   hapticTap();
                   setFilter(category);
                 }}
-                className={`chip px-4 py-2 text-sm font-bold ${isActive ? "fill-yellow" : ""}`}
+                className={`chip px-4 py-2 text-sm font-bold ${isActive ? "bg-accentfill" : ""}`}
               >
                 {category}
                 <span className="font-mono text-xs opacity-70">{count}</span>

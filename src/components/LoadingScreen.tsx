@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-// Two-tone "HA" blocks + chunky loading bar intro. Under ~1.4s total,
-// skippable by click/key, instantly skipped on repeat visits in the same
-// session and under prefers-reduced-motion.
-const KEY = "ha-intro-done";
+// Terminal boot intro: a quick $ whoami / $ cat profile.json sequence, then
+// the page reveals. Under ~1.2s, skippable by click/key, plays once per
+// session, and never plays under prefers-reduced-motion.
+const KEY = "ha-boot-done";
 
 const seenBefore = () => {
   try {
@@ -19,85 +18,123 @@ const markSeen = () => {
   try {
     sessionStorage.setItem(KEY, "1");
   } catch {
-    // storage unavailable — the intro just plays again next load, harmless
+    // storage unavailable — the boot just replays next load, harmless
   }
 };
 
-export function LoadingScreen() {
+// [command (typed char by char), output (appears at once)]
+const STEPS: { cmd: string; out: string }[] = [
+  { cmd: "whoami", out: "harshad_agrawal" },
+  {
+    cmd: "cat profile.json",
+    out: '{ "role": "AI/ML Engineer", "open_to_work": true }',
+  },
+];
+
+const TYPE_MS = 16; // per character while typing a command
+const OUT_PAUSE = 260; // before showing a command's output
+const CMD_PAUSE = 180; // before typing the next command
+
+export function BootScreen() {
   const reduce = useReducedMotion();
   const [done, setDone] = useState(() => seenBefore());
-  const [pct, setPct] = useState(0);
   const [leaving, setLeaving] = useState(false);
-
-  const skip = reduce;
+  const [lines, setLines] = useState<string[]>([]);
+  const [typed, setTyped] = useState("");
 
   useEffect(() => {
-    if (skip || done) return;
-    // Lock scroll while the intro is up
+    if (reduce || done) return;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [skip, done]);
+  }, [reduce, done]);
 
   useEffect(() => {
-    if (skip || done || leaving) return;
-    const duration = 950;
-    const start = performance.now();
-    let raf = 0;
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - start) / duration);
-      // step-wise for a chunky, game-loading feel
-      setPct(Math.floor(p * 100));
-      if (p < 1) raf = requestAnimationFrame(tick);
-      else finish();
+    if (reduce || done || leaving) return;
+
+    let cancelled = false;
+    const timers: number[] = [];
+    const at = (ms: number, fn: () => void) => {
+      timers.push(window.setTimeout(() => !cancelled && fn(), ms));
     };
     const finish = () => {
+      if (cancelled) return;
+      cancelled = true;
       setLeaving(true);
       markSeen();
-      window.setTimeout(() => setDone(true), 380);
+      window.setTimeout(() => setDone(true), 340);
     };
-    raf = requestAnimationFrame(tick);
+
+    let clock = 120;
+    for (const step of STEPS) {
+      for (let i = 1; i <= step.cmd.length; i++) {
+        const slice = step.cmd.slice(0, i);
+        at(clock, () => setTyped(slice));
+        clock += TYPE_MS;
+      }
+      const cmd = step.cmd;
+      at(clock, () => {
+        setLines((prev) => [...prev, `$ ${cmd}`]);
+        setTyped("");
+      });
+      clock += OUT_PAUSE;
+      const out = step.out;
+      at(clock, () => setLines((prev) => [...prev, out]));
+      clock += CMD_PAUSE;
+    }
+    at(clock + 160, finish);
+
     const skipNow = () => {
-      cancelAnimationFrame(raf);
+      cancelled = true;
+      timers.forEach((t) => window.clearTimeout(t));
       finish();
     };
     window.addEventListener("pointerdown", skipNow);
     window.addEventListener("keydown", skipNow);
     return () => {
-      cancelAnimationFrame(raf);
+      cancelled = true;
+      timers.forEach((t) => window.clearTimeout(t));
       window.removeEventListener("pointerdown", skipNow);
       window.removeEventListener("keydown", skipNow);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [skip, done, leaving]);
+  }, [reduce, done, leaving]);
 
-  if (skip || done) return null;
+  if (reduce || done) return null;
 
   return (
     <motion.div
       aria-hidden="true"
-      className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-8 bg-page"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-bg px-5"
       initial={{ y: 0 }}
       animate={leaving ? { y: "-100%" } : { y: 0 }}
-      transition={{ duration: 0.36, ease: "easeIn" }}
+      transition={{ duration: 0.32, ease: "easeIn" }}
     >
-      <div className="flex items-center gap-4">
-        <span className="flex size-20 items-center justify-center rounded-2xl border-4 border-inkline bg-[#ffde59] font-display text-4xl text-[#17130b] shadow-[7px_7px_0_var(--c-hard)] sm:size-24 sm:text-5xl -rotate-3">
-          H
-        </span>
-        <span className="flex size-20 items-center justify-center rounded-2xl border-4 border-inkline bg-[#f9a8d4] font-display text-4xl text-[#17130b] shadow-[7px_7px_0_var(--c-hard)] sm:size-24 sm:text-5xl rotate-3">
-          A
-        </span>
-      </div>
-
-      <div className="w-64 max-w-[70vw]">
-        <div className="intro-track h-5 w-full overflow-hidden rounded-full">
-          <div className="intro-block h-full" style={{ width: `${pct}%` }} />
+      <div className="term w-full max-w-xl">
+        <div className="term-head">
+          <span className="term-dot" aria-hidden="true" />
+          <span className="term-dot" aria-hidden="true" />
+          <span className="term-dot" aria-hidden="true" />
+          <span className="ml-2">harshad@portfolio: ~</span>
         </div>
-        <p className="mt-3 text-center font-mono text-xs font-bold tracking-widest text-ink">
-          LOADING PORTFOLIO… {pct}%
-        </p>
+        <div className="term-body min-h-[7.5rem]">
+          {lines.map((line, i) =>
+            line.startsWith("$ ") ? (
+              <p key={i}>
+                <span className="term-prompt">$</span> {line.slice(2)}
+              </p>
+            ) : (
+              <p key={i} className="tval">
+                {line}
+              </p>
+            ),
+          )}
+          <p>
+            <span className="term-prompt">$</span> {typed}
+            <span className="animate-caret ml-0.5 inline-block h-4 w-[7px] translate-y-0.5 bg-[#e8e4d8]" />
+          </p>
+        </div>
       </div>
     </motion.div>
   );

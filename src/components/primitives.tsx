@@ -29,41 +29,44 @@ export function Reveal({
   );
 }
 
-type Tone = "a" | "b" | "c";
-
-// Full-bleed colored section with the shared block-style header.
+// Full-bleed section with the CLI-motif header: the kicker renders as a
+// shell prompt (~/{id} $ {cmd}) while the title stays plainly readable for
+// recruiters and ATS parsers.
 export function Section({
   id,
   index,
-  kicker,
+  cmd,
   title,
-  tone = "a",
+  alternate = false,
   children,
 }: {
   id: string;
   index: string;
-  kicker: string;
+  cmd: string;
   title: string;
-  tone?: Tone;
+  alternate?: boolean;
   children: ReactNode;
 }) {
   return (
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={`sec-${tone} scroll-mt-20 border-b-[3px] border-inkline`}
+      className={`scroll-mt-20 border-b-[3px] border-edge ${alternate ? "bg-bga" : "bg-bg"}`}
     >
       <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 md:py-24">
         <Reveal>
           <div className="mb-10 md:mb-14">
-            <p className="flex items-center gap-3 font-mono text-sm font-bold tracking-wide">
-              <span
-                className="inline-flex size-8 items-center justify-center rounded-lg border-[3px] border-inkline bg-card text-sm shadow-[3px_3px_0_var(--c-hard)]"
-                aria-hidden="true"
-              >
-                {index}
+            <p className="flex items-center gap-2 font-mono text-sm font-bold text-accent">
+              <span className="text-muted" aria-hidden="true">
+                ~/{id}
               </span>
-              {kicker}
+              <span aria-hidden="true">$</span>
+              <span className="text-ink">{cmd}</span>
+              <span
+                className="ml-1 inline-block h-4 w-[7px] translate-y-0.5 animate-caret bg-accent"
+                aria-hidden="true"
+              />
+              <span className="sr-only">section {index}</span>
             </p>
             <h2
               id={`${id}-heading`}
@@ -72,7 +75,7 @@ export function Section({
               {title}
             </h2>
             <div
-              className="mt-4 h-2.5 w-24 rounded-full border-2 border-inkline bg-card"
+              className="mt-4 h-2.5 w-24 rounded-full border-2 border-edge bg-transparent"
               aria-hidden="true"
             />
           </div>
@@ -194,31 +197,5 @@ export function SecondaryButton({
     >
       {children}
     </a>
-  );
-}
-
-// Decorative floating icon tile (neural net / terminal / database etc.).
-// Max 2-3 per section; purely visual, hidden from assistive tech.
-export function IconTile({
-  Icon,
-  fill,
-  bobClass = "bob",
-  className,
-  label,
-}: {
-  Icon: (props: { className?: string }) => ReactNode;
-  fill: string;
-  bobClass?: string;
-  className?: string;
-  label?: string;
-}) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`${bobClass} flex size-14 items-center justify-center rounded-2xl border-[3px] border-inkline shadow-[5px_5px_0_var(--c-hard)] ${fill} ${className ?? ""}`}
-      title={label}
-    >
-      <Icon className="size-6 text-[#17130b]" />
-    </div>
   );
 }

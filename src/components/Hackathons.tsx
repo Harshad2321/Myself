@@ -10,9 +10,9 @@ export function Hackathons() {
     <Section
       id="hackathons"
       index="05"
-      kicker="competitions and wins"
+      cmd="history | grep win"
       title="Hackathons and Achievements"
-      tone="c"
+      alternate
     >
       <ul className="grid gap-5 md:grid-cols-2">
         {hackathons.map((event, i) => (
@@ -28,7 +28,7 @@ export function Hackathons() {
               <h3 className="font-display text-base leading-snug text-[#17130b]">{event.name}</h3>
               {event.highlight ? (
                 <span
-                  className="fill-gold flex size-9 shrink-0 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]"
+                  className="flex size-9 shrink-0 items-center justify-center rounded-xl border-[3px] border-inkline bg-accent shadow-[3px_3px_0_var(--c-hard)]"
                   aria-label="Highlight"
                 >
                   <Star className="size-5 fill-[#17130b] text-[#17130b]" aria-hidden="true" />

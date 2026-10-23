@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useInView, useReducedMotion } from "framer-motion";
 import { GraduationCap, MapPin, Sparkles } from "lucide-react";
 import {
   aboutEducationSummary,
@@ -12,7 +12,6 @@ import {
 } from "../content";
 import { Chip, Reveal, Section } from "./primitives";
 import { FlexCardButton } from "./FlexCard";
-import { AvatarPortrait } from "./Avatar";
 
 function CountUp({
   to,
@@ -49,24 +48,60 @@ function CountUp({
   return <span ref={ref}>{value.toFixed(decimals)}</span>;
 }
 
+// The quick stats rendered as terminal output — real numbers, no self-rated
+// skill meters. Keys are slugged from the quickStats labels in content.ts.
+const statKey = (label: string) =>
+  label
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, "")
+    .trim()
+    .split(/\s+/)
+    .slice(0, 3)
+    .join("_");
+
+function StatsTerminal() {
+  return (
+    <div className="term">
+      <div className="term-head">
+        <span className="term-dot" aria-hidden="true" />
+        <span className="term-dot" aria-hidden="true" />
+        <span className="term-dot" aria-hidden="true" />
+        <span className="ml-2">~/about $ cat stats.log</span>
+      </div>
+      <div className="term-body">
+        {quickStats.map((stat) => (
+          <p key={stat.label} className="flex flex-wrap gap-x-2">
+            <span className="min-w-[16rem] flex-1 truncate">{statKey(stat.label)}</span>
+            <span className="tok">=</span>{" "}
+            <span className="tval">
+              <CountUp to={stat.value} decimals={stat.decimals} />
+              {stat.suffix ?? ""}
+            </span>
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // Level bar framing for the education line — the number is the real semester.
 function LevelBar() {
   const total = 8; // standard 8-semester B.Tech, expected May 2028
   const sem = Number(education.status.replace(/\D+/g, "")) || 0;
   return (
     <div>
-      <p className="flex items-center justify-between font-mono text-xs font-bold text-[#17130b]/70">
+      <p className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs font-bold text-[#45403a]">
         <span>
           LV.{sem} · SEM {sem}/{total}
         </span>
-        <span>{aboutEducationSummary}</span>
+        <span className="text-[#17130b]/70">{aboutEducationSummary}</span>
       </p>
       <div className="mt-2 flex gap-1" aria-hidden="true">
         {Array.from({ length: total }, (_, i) => (
           <span
             key={i}
             className={`h-3 flex-1 rounded-[4px] border-2 border-inkline ${
-              i < sem ? "fill-yellow" : "bg-transparent"
+              i < sem ? "bg-accentfill" : "bg-transparent"
             }`}
           />
         ))}
@@ -77,10 +112,10 @@ function LevelBar() {
 
 export function About() {
   return (
-    <Section id="about" index="01" kicker="who I am" title="About" tone="b">
+    <Section id="about" index="01" cmd="whoami --verbose" title="About">
       <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
         <Reveal>
-          <div className="card space-y-5 p-6 text-base leading-relaxed text-[#17130b] sm:p-8 sm:text-lg">
+          <div className="card space-y-5 p-6 text-base font-medium leading-relaxed text-[#17130b] sm:p-8 sm:text-lg">
             {aboutParagraphs.map((paragraph) => (
               <p key={paragraph.slice(0, 32)}>{paragraph}</p>
             ))}
@@ -91,9 +126,25 @@ export function About() {
           <aside className="space-y-4 lg:sticky lg:top-24">
             <div className="card p-6">
               <div className="flex items-center gap-4">
-                {/* TODO(owner): replace placeholder art — see AVATAR-BRIEF.md */}
-                <div className="size-16 shrink-0 rotate-[-2deg] rounded-2xl border-[3px] border-inkline bg-[#ffde59] p-1 shadow-[4px_4px_0_var(--c-hard)]">
-                  <AvatarPortrait className="size-full rounded-xl" />
+                <div className="size-16 shrink-0 rotate-[-2deg] overflow-hidden rounded-2xl border-[3px] border-inkline bg-card shadow-[4px_4px_0_var(--c-hard)] sm:size-20">
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcSet="./assets/avatar-320.webp 320w, ./assets/avatar-640.webp 640w, ./assets/avatar-960.webp 960w"
+                      sizes="(min-width: 640px) 80px, 64px"
+                    />
+                    <img
+                      src="./assets/avatar-320.jpg"
+                      srcSet="./assets/avatar-320.jpg 320w, ./assets/avatar-640.jpg 640w, ./assets/avatar-960.jpg 960w"
+                      sizes="(min-width: 640px) 80px, 64px"
+                      width={320}
+                      height={320}
+                      alt="Portrait photo of Harshad Agrawal"
+                      className="size-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
                 <div>
                   <p className="font-display text-lg text-[#17130b]">{identity.name}</p>
@@ -111,10 +162,13 @@ export function About() {
                     {currentlyStatus.label}. {currentlyStatus.detail}
                   </span>
                 </p>
-                <p className="flex gap-2.5 font-medium text-[#45403a]">
-                  <GraduationCap className="mt-0.5 size-4 shrink-0 text-[#17130b]" aria-hidden="true" />
+                <div className="flex gap-2.5">
+                  <GraduationCap
+                    className="mt-0.5 size-4 shrink-0 text-[#17130b]"
+                    aria-hidden="true"
+                  />
                   <LevelBar />
-                </p>
+                </div>
               </div>
             </div>
 
@@ -136,29 +190,12 @@ export function About() {
 
       <Reveal className="mt-14">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <h3 className="font-display text-xl uppercase text-ink sm:text-2xl">Stat sheet</h3>
+          <h3 className="font-mono text-sm font-bold text-accent">
+            <span className="text-muted">~/about</span> $ cat stats.log
+          </h3>
           <FlexCardButton />
         </div>
-        <ul className="grid grid-cols-2 gap-5 sm:grid-cols-4">
-          {quickStats.map((stat, i) => (
-            <motion.li
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
-              className="card lift p-5 text-center"
-            >
-              <p className="font-display text-3xl text-[#17130b] sm:text-4xl">
-                <CountUp to={stat.value} decimals={stat.decimals} />
-                {stat.suffix}
-              </p>
-              <p className="mt-2 text-xs font-semibold leading-snug text-[#45403a] sm:text-sm">
-                {stat.label}
-              </p>
-            </motion.li>
-          ))}
-        </ul>
+        <StatsTerminal />
       </Reveal>
     </Section>
   );

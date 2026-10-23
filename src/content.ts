@@ -20,8 +20,8 @@ export const identity = {
   linkedin: "https://www.linkedin.com/in/harshad-agrawal-486964322",
   leetcode: "https://leetcode.com/u/harshadagrawal/",
   hackerrank: "https://www.hackerrank.com/profile/harshad_agrawal1",
-  earlierPortfolio: "https://myself-chi-mauve.vercel.app",
-  earlierPortfolioRepo: "Myself",
+  // This site replaces the old portfolio at myself-chi-mauve.vercel.app,
+  // so there is no "v1" link to keep.
   resumePdf: "./assets/Harshad_Agrawal_Resume.pdf",
 };
 
@@ -48,6 +48,11 @@ export const currentlyStatus = {
   detail:
     "Selected via the SCAAI Research Internship Drive 2026. Healthcare AI under faculty mentor Dr. Rahee Walambe.",
 };
+
+// Manually updated "currently building" line for the hero terminal — keep it
+// in sync with what is actually being worked on.
+export const currentlyBuilding =
+  "healthcare-AI data pipeline (EDA · preprocessing · fine-tuning) @ SCAAI research";
 
 export const openToRoles = [
   "AI/ML/Applied AI",
@@ -247,6 +252,71 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
 ];
+
+// The recruiter "flex row": highest-signal, most job-keyword-relevant tools.
+// Every entry traces to real evidence (experience bullets, project tech
+// lists, or certifications). AWS is deliberately NOT listed — it appears only
+// as a hackathon organizer; OCI is what is actually certified.
+export const coreStack: { name: string; note: string; secondary?: boolean }[] = [
+  { name: "Git", note: "GitLab CI/CD and GitHub Actions pipelines at Akiyam Solutions" },
+  { name: "Python", note: "FastAPI services, ML pipelines, LangGraph agents across projects" },
+  { name: "SQL", note: "HackerRank SQL (Advanced), Microsoft SQL Server certifications" },
+  { name: "C++", note: "DSA coursework incl. C++ STL" },
+  { name: "C", note: "Languages coursework" },
+  { name: "Java", note: "Spring Boot microservices, JPMorganChase job simulation" },
+  {
+    name: "TypeScript / JS",
+    note: "React 19 + TypeScript dashboards (JanSetu AI, this site) — familiar, not primary",
+    secondary: true,
+  },
+  { name: "OCI", note: "Oracle Cloud Infrastructure 2025 Multicloud Architect Professional" },
+  { name: "Docker", note: "CI/CD pipelines with deployment gates at Akiyam Solutions" },
+  { name: "Kubernetes", note: "Kubernetes/Helm deployments on a 15-developer platform" },
+  { name: "FastAPI", note: "MCP gateway with RBAC on a 17-agent LLM system" },
+];
+
+// Evidence map for skill chips: chip text → anchor + proof note. Only tools
+// explicitly named in an experience bullet, project tech list, coursework
+// item, or certificate title are linked; the rest stay plain chips.
+export const skillProofs: Record<string, { href: string; note: string }> = {
+  FastAPI: { href: "#experience", note: "Akiyam Solutions — FastAPI MCP gateway with RBAC" },
+  "Spring Boot": { href: "#experience", note: "Akiyam Solutions — Kafka microservice work" },
+  "Spring Data JPA": { href: "#projects", note: "JPMorganChase job simulation" },
+  Kafka: { href: "#experience", note: "Akiyam Solutions — Kafka topics and consumer groups" },
+  Neo4j: { href: "#experience", note: "Akiyam Solutions — Neo4j retrieval pipelines" },
+  ChromaDB: { href: "#experience", note: "Akiyam Solutions — ChromaDB retrieval pipelines" },
+  "Model Context Protocol (MCP)": { href: "#experience", note: "Akiyam Solutions — MCP gateway" },
+  Docker: { href: "#experience", note: "Akiyam Solutions — Docker CI/CD pipelines" },
+  "Kubernetes (Helm)": { href: "#experience", note: "Akiyam Solutions — K8s/Helm deployments" },
+  "GitLab CI/CD": { href: "#experience", note: "Akiyam Solutions — CI/CD with deployment gates" },
+  "Pytest (unit and integration)": { href: "#experience", note: "194-test Pytest suite culture" },
+  Linux: { href: "#experience", note: "Akiyam Solutions — Linux deployment infrastructure" },
+  LangGraph: { href: "#projects", note: "JanSetu AI — LangGraph orchestration" },
+  LangChain: { href: "#projects", note: "Nurture — multi-agent simulation" },
+  "React 19": { href: "#projects", note: "JanSetu AI — React/TypeScript dashboard" },
+  "TypeScript/JavaScript (familiar)": { href: "#projects", note: "JanSetu AI dashboard, this site" },
+  SQLAlchemy: { href: "#projects", note: "JanSetu AI tech stack" },
+  "SQLite (WAL)": { href: "#projects", note: "JanSetu AI tech stack" },
+  XGBoost: { href: "#projects", note: "MindMetrics and NSE platform forecasting" },
+  "Scikit-learn": { href: "#projects", note: "MindMetrics pipeline" },
+  TensorFlow: { href: "#projects", note: "Handwritten Digit Recognition ANN" },
+  Streamlit: { href: "#projects", note: "NSE analytics dashboard" },
+  Plotly: { href: "#projects", note: "NSE analytics dashboard" },
+  "GitHub Actions": { href: "#projects", note: "NSE platform — daily refresh workflow" },
+  "Deep Learning (Autoencoder, GRU)": { href: "#projects", note: "MindMetrics stress pipeline" },
+  "Anomaly Detection": { href: "#projects", note: "MLCopilot-AI monitoring" },
+  Forecasting: { href: "#projects", note: "NSE platform ML forecasting" },
+  RAG: { href: "#about", note: "RAG pipelines in about and experience" },
+  "Power BI": { href: "#certifications", note: "Microsoft Power BI certification" },
+  SQL: { href: "#certifications", note: "HackerRank and Microsoft SQL certifications" },
+  "SQL Server (T-SQL)": { href: "#certifications", note: "Microsoft SQL Server certification" },
+  Statistics: { href: "#education", note: "Coursework" },
+  NLP: { href: "#education", note: "Coursework" },
+  "Oracle Cloud Infrastructure (OCI)": {
+    href: "#certifications",
+    note: "OCI 2025 certifications",
+  },
+};
 
 export type ExperienceItem = {
   role: string;

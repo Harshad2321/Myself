@@ -68,7 +68,7 @@ export function Cursor() {
           opacity: visible ? 1 : 0,
           scale: pressed ? 0.8 : active ? 1.65 : 1,
           rotate: active ? 45 : 0,
-          backgroundColor: active ? "rgba(249, 168, 212, 0.35)" : "rgba(249, 168, 212, 0)",
+          backgroundColor: active ? "rgba(255, 107, 53, 0.32)" : "rgba(255, 107, 53, 0)",
         }}
         transition={{ type: "spring", stiffness: 320, damping: 22 }}
       />

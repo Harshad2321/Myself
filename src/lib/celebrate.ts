@@ -24,7 +24,7 @@ const allowed = () =>
   typeof window !== "undefined" &&
   !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const NEON = ["#22d3ee", "#a78bfa", "#f472b6", "#38bdf8", "#e8eef9"];
+const FLAT = ["#ff6b35", "#f7f3e6", "#ffb38a", "#101010"];
 
 /** Small dual-cannon pop from the bottom corners. Used sparingly. */
 export async function celebrate() {
@@ -37,7 +37,7 @@ export async function celebrate() {
     startVelocity: 34,
     ticks: 140,
     origin: { x: 0.18, y: 0.9 },
-    colors: NEON,
+    colors: FLAT,
     disableForReducedMotion: true,
   });
   confetti({
@@ -46,7 +46,7 @@ export async function celebrate() {
     startVelocity: 34,
     ticks: 140,
     origin: { x: 0.82, y: 0.9 },
-    colors: NEON,
+    colors: FLAT,
     disableForReducedMotion: true,
   });
 }
@@ -63,7 +63,7 @@ export async function celebrateSmall() {
     ticks: 110,
     scalar: 0.85,
     origin: { x: 0.5, y: 0.85 },
-    colors: NEON,
+    colors: FLAT,
     disableForReducedMotion: true,
   });
 }

@@ -43,7 +43,11 @@ function roundRect(
 
 const INK = "#17130b";
 const LINE = "#101010";
-const PAPER = "#fdf3d3";
+const PAPER = "#151515";
+const CREAM = "#f7f3e6";
+const ORANGE = "#ff6b35";
+const TERM = "#e8e4d8";
+const TERM_DIM = "#8f897b";
 
 async function renderCard(): Promise<Blob | null> {
   await document.fonts.ready;
@@ -53,80 +57,73 @@ async function renderCard(): Promise<Blob | null> {
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
 
-  // paper + chunky frame
+  // charcoal base + cream frame line
   ctx.fillStyle = PAPER;
   ctx.fillRect(0, 0, 1200, 630);
-  ctx.strokeStyle = LINE;
-  ctx.lineWidth = 8;
-  roundRect(ctx, 14, 14, 1172, 602, 28);
+  ctx.strokeStyle = CREAM;
+  ctx.lineWidth = 6;
+  roundRect(ctx, 18, 18, 1164, 594, 26);
   ctx.stroke();
 
-  // scattered flat blocks for texture
-  const blocks: [number, number, number, string][] = [
-    [930, 70, 26, "#f9a8d4"],
-    [1010, 130, 18, "#7dd3fc"],
-    [880, 160, 14, "#ffde59"],
-    [1080, 90, 22, "#6ee7b7"],
-  ];
-  for (const [x, y, s, color] of blocks) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, s, s);
-    ctx.strokeStyle = LINE;
-    ctx.lineWidth = 3;
-    ctx.strokeRect(x, y, s, s);
-  }
-
-  // header row: HA blocks + kicker
-  ctx.fillStyle = "#ffde59";
-  roundRect(ctx, 64, 62, 74, 74, 14);
-  ctx.fill();
-  ctx.strokeStyle = LINE;
-  ctx.lineWidth = 5;
-  ctx.stroke();
-  ctx.fillStyle = "#f9a8d4";
-  roundRect(ctx, 150, 62, 74, 74, 14);
-  ctx.fill();
-  ctx.stroke();
-  ctx.fillStyle = INK;
-  ctx.font = "44px 'Archivo Black', sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText("H", 101, 116);
-  ctx.fillText("A", 187, 116);
+  // header row: terminal prompt
   ctx.textAlign = "left";
   ctx.font = "700 22px 'Inter Variable', sans-serif";
-  ctx.fillStyle = INK;
-  ctx.fillText("PORTFOLIO CARD // HARSHAD.AGRAWAL", 260, 108);
+  ctx.fillStyle = TERM_DIM;
+  ctx.fillText("harshad@portfolio:~", 72, 84);
+  ctx.fillStyle = ORANGE;
+  ctx.font = "800 22px 'Inter Variable', sans-serif";
+  ctx.fillText("$", 340, 84);
+  ctx.fillStyle = TERM;
+  ctx.fillText("status --check", 362, 84);
 
   // name
   ctx.font = "88px 'Archivo Black', sans-serif";
-  ctx.fillText("HARSHAD", 64, 236);
-  ctx.fillStyle = "#f9a8d4";
-  roundRect(ctx, 560, 158, 470, 92, 18);
+  ctx.fillStyle = CREAM;
+  ctx.fillText("HARSHAD", 64, 220);
+  // AGRAWAL in an orange block with black border + orange offset shadow
+  const blockX = 556;
+  const blockY = 150;
+  const blockW = 486;
+  const blockH = 96;
+  ctx.fillStyle = ORANGE;
+  roundRect(ctx, blockX + 10, blockY + 10, blockW, blockH, 18); // hard shadow
+  ctx.fill();
+  ctx.fillStyle = ORANGE;
+  roundRect(ctx, blockX, blockY, blockW, blockH, 18);
   ctx.fill();
   ctx.strokeStyle = LINE;
   ctx.lineWidth = 6;
+  roundRect(ctx, blockX, blockY, blockW, blockH, 18);
   ctx.stroke();
   ctx.fillStyle = INK;
-  ctx.fillText("AGRAWAL", 584, 228);
+  ctx.font = "88px 'Archivo Black', sans-serif";
+  ctx.fillText("AGRAWAL", blockX + 26, blockY + 76);
 
-  // role line
+  // role line as terminal output
   ctx.font = "700 26px 'Inter Variable', sans-serif";
+  ctx.fillStyle = TERM_DIM;
+  ctx.fillText(">", 64, 292);
+  ctx.fillStyle = TERM;
   const roleLine = `${roles[0].toUpperCase()} · ${roles[1].toUpperCase()}`;
-  ctx.fillText(roleLine, 64, 296);
+  ctx.fillText(roleLine, 88, 292);
 
-  // stat blocks
+  // stat blocks: cream boxes, black border, orange hard shadow
   const stats = cardStats();
   const boxW = 252;
   const gap = 20;
   const totalW = stats.length * boxW + (stats.length - 1) * gap;
-  let x = 64 + (1092 - totalW) / 2 - 30;
+  let x = 64 + (1072 - totalW) / 2;
   const y = 350;
   for (const stat of stats) {
-    ctx.fillStyle = stat.fill;
+    ctx.fillStyle = ORANGE;
+    roundRect(ctx, x + 8, y + 8, boxW, 130, 18);
+    ctx.fill();
+    ctx.fillStyle = CREAM;
     roundRect(ctx, x, y, boxW, 130, 18);
     ctx.fill();
     ctx.strokeStyle = LINE;
     ctx.lineWidth = 5;
+    roundRect(ctx, x, y, boxW, 130, 18);
     ctx.stroke();
     ctx.fillStyle = INK;
     ctx.textAlign = "center";
@@ -153,12 +150,9 @@ async function renderCard(): Promise<Blob | null> {
 
   // handles
   ctx.font = "600 20px 'Inter Variable', sans-serif";
-  ctx.fillStyle = INK;
-  ctx.fillText(
-    `github.com/${identity.githubHandle}   ·   linkedin.com/in/harshad-agrawal-486964322`,
-    64,
-    560,
-  );
+  ctx.fillStyle = TERM_DIM;
+  ctx.fillText("github.com/" + identity.githubHandle, 64, 560);
+  ctx.fillText("linkedin.com/in/harshad-agrawal-486964322", 430, 560);
 
   return new Promise((resolve) => canvas.toBlob((blob) => resolve(blob), "image/png"));
 }

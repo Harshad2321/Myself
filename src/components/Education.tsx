@@ -4,12 +4,12 @@ import { Chip, Reveal, Section } from "./primitives";
 
 export function Education() {
   return (
-    <Section id="education" index="07" kicker="academics" title="Education" tone="b">
+    <Section id="education" index="07" cmd="cat transcript.txt" title="Education" alternate>
       <Reveal>
         <article className="card lift p-6 sm:p-8">
           <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
             <div className="flex items-start gap-4">
-              <div className="fill-yellow flex size-14 shrink-0 items-center justify-center rounded-2xl border-[3px] border-inkline shadow-[4px_4px_0_var(--c-hard)]">
+              <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl border-[3px] border-inkline bg-accentfill shadow-[4px_4px_0_var(--c-hard)]">
                 <GraduationCap className="size-7 text-[#17130b]" aria-hidden="true" />
               </div>
               <div>

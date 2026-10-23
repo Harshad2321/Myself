@@ -8,8 +8,27 @@ import { hapticTap } from "../lib/haptics";
 const filters = ["All", ...certGroups.map((g) => g.group), "Hackathon participations"] as const;
 type Filter = (typeof filters)[number];
 
-// Badge-wall medallion fills rotate per group so each wall reads as a set.
-const medallionFills = ["fill-sky", "fill-pink", "fill-yellow", "fill-mint", "fill-lav"];
+// Badge-wall medallions: cream tile, comic-ink border, orange check — one
+// accent, consistent with the rest of the system.
+function Medallion({ index }: { index: number }) {
+  return (
+    <span
+      className="flex size-12 shrink-0 items-center justify-center rounded-xl border-[3px] border-inkline bg-card shadow-[3px_3px_0_var(--c-hard)]"
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 24 24" className="size-6" fill="none">
+        <path
+          d="M5 13l4 4L19 7"
+          stroke="var(--c-accent)"
+          strokeWidth="3.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+      <span className="sr-only">{`Credential ${index + 1}`}</span>
+    </span>
+  );
+}
 
 export function Certifications() {
   const [filter, setFilter] = useState<Filter>("All");
@@ -26,7 +45,12 @@ export function Certifications() {
   }, [filter]);
 
   return (
-    <Section id="certifications" index="06" kicker="verified learning" title="Certifications" tone="a">
+    <Section
+      id="certifications"
+      index="06"
+      cmd="ls ~/certs | wc -l"
+      title="Certifications"
+    >
       <Reveal>
         <div className="flex flex-wrap items-center gap-3">
           <span className="chip px-3 py-1.5 font-mono text-xs font-bold">
@@ -44,7 +68,7 @@ export function Certifications() {
                     hapticTap();
                     setFilter(f);
                   }}
-                  className={`chip px-3.5 py-1.5 text-sm font-bold ${isActive ? "fill-yellow" : ""}`}
+                  className={`chip px-3.5 py-1.5 text-sm font-bold ${isActive ? "bg-accentfill" : ""}`}
                 >
                   {f}
                 </button>
@@ -86,7 +110,7 @@ export function Certifications() {
         </Reveal>
       ) : (
         <div className="mt-8 space-y-10">
-          {groups.map((group, gi) => (
+          {groups.map((group) => (
             <div key={group.group}>
               <Reveal>
                 <h3 className="flex items-center gap-2 font-display text-lg uppercase text-ink">
@@ -108,23 +132,7 @@ export function Certifications() {
                       transition={{ duration: 0.25, ease: "easeOut" }}
                       className="card lift flex items-center gap-4 p-4"
                     >
-                      <span
-                        className={`flex size-12 shrink-0 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)] ${
-                          medallionFills[(gi + group.items.indexOf(cert)) % medallionFills.length]
-                        }`}
-                        aria-hidden="true"
-                      >
-                        {/* medallion check mark */}
-                        <svg viewBox="0 0 24 24" className="size-6" fill="none">
-                          <path
-                            d="M5 13l4 4L19 7"
-                            stroke="#17130b"
-                            strokeWidth="3.4"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </span>
+                      <Medallion index={group.items.indexOf(cert)} />
                       <div className="min-w-0 flex-1">
                         <p className="text-sm font-bold leading-snug text-[#17130b]">{cert.title}</p>
                         <p className="mt-1 text-xs font-semibold text-[#45403a]">

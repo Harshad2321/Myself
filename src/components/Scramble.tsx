@@ -11,7 +11,6 @@ export function Scramble({ text }: { text: string }) {
   const reduce = useReducedMotion();
   const [display, setDisplay] = useState(text);
   const running = useRef(false);
-  const playedOnce = useRef(false);
   const timer = useRef<number | undefined>(undefined);
 
   const run = useCallback(() => {
@@ -36,8 +35,9 @@ export function Scramble({ text }: { text: string }) {
   }, [reduce, text]);
 
   useEffect(() => {
-    if (playedOnce.current) return;
-    playedOnce.current = true;
+    // Runs once after mount. Under StrictMode the first effect pass is
+    // cleaned up (timer cleared) and this second pass starts the real run,
+    // so no once-per-mount ref guard is used here.
     const start = window.setTimeout(run, 350);
     return () => {
       window.clearTimeout(start);

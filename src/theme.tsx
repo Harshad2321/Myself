@@ -9,7 +9,7 @@ const ThemeContext = createContext<ThemeContextValue>({ theme: "dark", toggle: (
 export function ThemeProvider({ children }: { children: ReactNode }) {
   // The inline script in index.html already set the class before paint.
   const [theme, setTheme] = useState<Theme>(() =>
-    document.documentElement.classList.contains("dark") ? "dark" : "light",
+    document.documentElement.classList.contains("light") ? "light" : "dark",
   );
 
   useEffect(() => {

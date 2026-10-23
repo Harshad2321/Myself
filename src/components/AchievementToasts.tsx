@@ -84,7 +84,7 @@ export function AchievementToasts() {
             transition={{ type: "spring", stiffness: 380, damping: 26 }}
             className="card pointer-events-auto relative flex items-center gap-3 p-4 pr-11"
           >
-            <span className="fill-gold flex size-10 shrink-0 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-xl border-[3px] border-inkline bg-accentfill shadow-[3px_3px_0_var(--c-hard)]">
               <Trophy className="size-5 text-[#17130b]" aria-hidden="true" />
             </span>
             <span>

@@ -93,7 +93,7 @@ export function Contact() {
     "w-full rounded-xl border-[3px] border-inkline bg-card px-4 py-3 text-sm font-medium text-[#17130b] placeholder:text-[#17130b]/40 transition-[box-shadow,translate] duration-100 focus:translate-x-[2px] focus:translate-y-[2px] focus:shadow-[2px_2px_0_var(--c-hard)] focus:outline-none";
 
   return (
-    <Section id="contact" index="09" kicker="say hello" title="Get in Touch" tone="a">
+    <Section id="contact" index="09" cmd='mail -s "opportunity"' title="Get in Touch" alternate>
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal>
           <div>
@@ -105,26 +105,26 @@ export function Contact() {
 
             <ul className="mt-8 space-y-4">
               <li className="flex flex-wrap items-center gap-3">
-                <span className="fill-sky flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]">
-                  <Mail className="size-5 text-[#17130b]" aria-hidden="true" />
+                <span className="flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline bg-card shadow-[3px_3px_0_var(--c-hard)]">
+                  <Mail className="size-5 text-accentcard" aria-hidden="true" />
                 </span>
                 <a
                   href={`mailto:${identity.email}`}
-                  className="break-all font-bold text-[#17130b] underline decoration-[3px] underline-offset-4 hover:bg-[#ffde59]"
+                  className="break-all font-bold text-[#17130b] underline decoration-[3px] underline-offset-4 hover:bg-accentfill"
                 >
                   {identity.email}
                 </a>
                 <CopyEmail />
               </li>
               <li className="flex flex-wrap items-center gap-3">
-                <span className="fill-pink flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]">
-                  <MapPin className="size-5 text-[#17130b]" aria-hidden="true" />
+                <span className="flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline bg-card shadow-[3px_3px_0_var(--c-hard)]">
+                  <MapPin className="size-5 text-accentcard" aria-hidden="true" />
                 </span>
                 <span className="font-semibold text-ink">{identity.location}</span>
               </li>
               <li className="flex flex-wrap items-center gap-3">
-                <span className="fill-mint flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]">
-                  <Phone className="size-5 text-[#17130b]" aria-hidden="true" />
+                <span className="flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline bg-card shadow-[3px_3px_0_var(--c-hard)]">
+                  <Phone className="size-5 text-accentcard" aria-hidden="true" />
                 </span>
                 <PhoneReveal />
               </li>

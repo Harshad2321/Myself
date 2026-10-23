@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ChevronDown, Database, FileDown, Mail, Network, Terminal } from "lucide-react";
-import { heroGreeting, heroPitch, identity, roles } from "../content";
+import { ChevronDown, FileDown } from "lucide-react";
+import { heroGreeting, heroPitch, identity, currentlyBuilding, roles } from "../content";
 import { GithubIcon, HackerrankIcon, LeetcodeIcon, LinkedinIcon } from "./icons";
-import { IconTile, Magnetic, PrimaryButton, SecondaryButton } from "./primitives";
-import { AvatarPortrait } from "./Avatar";
+import { Magnetic, PrimaryButton, SecondaryButton } from "./primitives";
 import { Scramble } from "./Scramble";
 import { celebrate } from "../lib/celebrate";
 import { hapticMoment } from "../lib/haptics";
@@ -43,11 +42,51 @@ function TypedRoles() {
     <p className="font-mono text-base font-bold text-ink sm:text-lg" aria-live="off">
       <span className="sr-only">{roles.join(", ")}</span>
       <span aria-hidden="true">
-        <span className="mr-1 text-[#17130b]/60">{">"}</span>
+        <span className="mr-1 text-accent">$</span>
         {roles[roleIndex].slice(0, chars)}
-        <span className="animate-caret ml-0.5 inline-block h-5 w-[3px] translate-y-0.5 bg-inkline" />
+        <span className="animate-caret ml-0.5 inline-block h-5 w-[3px] translate-y-0.5 bg-accentfill" />
       </span>
     </p>
+  );
+}
+
+// Hero status terminal: the real headline numbers rendered as shell output —
+// status flags, rank, semester and the experience one-liner. All values come
+// straight from content (quickStats / education).
+function StatusTerminal() {
+  const rows: [string, string][] = [
+    ["open_to_work", "true"],
+    ["hackathon_rank", "6th / 96,000+"],
+    ["semester", "5/8 · CGPA 7.85/10"],
+  ];
+  return (
+    <div className="term w-full max-w-md">
+      <div className="term-head">
+        <span className="term-dot" aria-hidden="true" />
+        <span className="term-dot" aria-hidden="true" />
+        <span className="term-dot" aria-hidden="true" />
+        <span className="ml-2">harshad@portfolio: ~</span>
+      </div>
+      <div className="term-body">
+        <p>
+          <span className="term-prompt">$</span> status --check
+        </p>
+        {rows.map(([key, value]) => (
+          <p key={key}>
+            <span className="tok">[</span> {key}: <span className="tval">{value}</span>{" "}
+            <span className="tok">]</span>
+          </p>
+        ))}
+        <p className="mt-1">
+          <span className="term-prompt">$</span> wc -l experience.log
+        </p>
+        <p className="tval">6+ mo industry · 17-agent platform · 194 tests passing</p>
+        <p className="mt-1">
+          <span className="term-prompt">$</span> cat building_now.txt
+        </p>
+        <p className="tval">{currentlyBuilding}</p>
+      </div>
+    </div>
   );
 }
 
@@ -56,7 +95,6 @@ const socials = [
   { label: "LinkedIn", href: identity.linkedin, Icon: LinkedinIcon },
   { label: "LeetCode", href: identity.leetcode, Icon: LeetcodeIcon },
   { label: "HackerRank", href: identity.hackerrank, Icon: HackerrankIcon },
-  { label: "Email", href: `mailto:${identity.email}`, Icon: Mail },
 ];
 
 export function Hero() {
@@ -71,25 +109,17 @@ export function Hero() {
     <section
       id="top"
       aria-label="Introduction"
-      className="sec-a relative flex min-h-[100svh] items-center overflow-hidden border-b-[3px] border-inkline pb-20 pt-28"
+      className="relative flex min-h-[100svh] items-center overflow-hidden border-b-[3px] border-edge bg-bg pb-20 pt-28"
     >
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_auto] lg:gap-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.15fr_auto]">
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="sticker fill-mint rotate-2">
-              <span className="inline-block size-2 rounded-full bg-[#101010]" aria-hidden="true" />
-              Open to work
-            </span>
-            <span className="sticker fill-gold -rotate-2" title="AI for Bharat Hackathon 2026 — Final Round">
-              6th / 96,000+
-            </span>
-          </div>
-
-          <p className="mt-8 font-mono text-sm font-bold tracking-wide text-ink">{heroGreeting}</p>
+          <p className="font-mono text-sm font-bold text-muted">
+            <span className="text-accent">$</span> echo "{heroGreeting}"
+          </p>
 
           <h1 className="mt-3 font-display uppercase leading-[0.95] tracking-tight text-ink">
             <span className="sr-only">Harshad Agrawal</span>
@@ -98,25 +128,14 @@ export function Hero() {
             </span>
             <span
               aria-hidden="true"
-              className="mt-3 inline-block -rotate-1 rounded-2xl border-4 border-inkline bg-[#f9a8d4] px-4 py-1 text-6xl text-[#17130b] shadow-[8px_8px_0_var(--c-hard)] sm:text-7xl xl:text-8xl"
+              className="mt-3 inline-block -rotate-1 rounded-2xl border-4 border-edge bg-accentfill px-4 py-1 text-6xl text-[#17130b] shadow-[8px_8px_0_var(--c-hard)] sm:text-7xl xl:text-8xl"
             >
               <Scramble text="AGRAWAL" />
             </span>
           </h1>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <span
-              className="chip px-3 py-1.5 font-mono text-xs font-bold"
-              aria-label="Level 5 — fifth semester of eight, B.Tech AI and ML"
-            >
-              LV.5 · SEM 5/8 · B.TECH AI &amp; ML
-            </span>
-            <span className="font-mono text-xs font-bold text-ink/70">
-              {identity.pronouns} · {identity.location}
-            </span>
-          </div>
-
-          <div className="mt-5">
+          {/* Fixed height so the typing animation never shifts the layout */}
+          <div className="mt-5 min-h-8 sm:min-h-9">
             <TypedRoles />
           </div>
 
@@ -144,8 +163,8 @@ export function Hero() {
               <li key={label}>
                 <a
                   href={href}
-                  target={href.startsWith("mailto") ? undefined : "_blank"}
-                  rel={href.startsWith("mailto") ? undefined : "noreferrer noopener"}
+                  target="_blank"
+                  rel="noreferrer noopener"
                   aria-label={label}
                   className="sq-press flex size-12 items-center justify-center rounded-xl"
                 >
@@ -153,47 +172,35 @@ export function Hero() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={`mailto:${identity.email}`}
+                aria-label="Email"
+                className="sq-press flex size-12 items-center justify-center rounded-xl font-mono text-sm font-bold"
+              >
+                @
+              </a>
+            </li>
           </ul>
+
+          {/* Compact status line for mobile — in flow, never overlapping */}
+          <p className="mt-6 font-mono text-[11px] font-bold leading-relaxed text-muted lg:hidden">
+            <span className="text-accent">$</span> status --check →{" "}
+            <span className="text-ink">open_to_work: true</span> ·{" "}
+            <span className="text-ink">rank 6th/96,000+</span> ·{" "}
+            <span className="text-ink">sem 5/8</span>
+          </p>
         </motion.div>
 
-        {/* Avatar frame + floating icon tiles, desktop only so mobile keeps
-            name, pitch and CTAs within the first screen */}
+        {/* Status terminal — the recruiter numbers as shell output. Desktop
+            only so mobile keeps name, pitch and CTAs within the first screen. */}
         <motion.div
-          initial={reduce ? false : { opacity: 0, scale: 0.9, rotate: 4 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={reduce ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="relative mx-auto hidden pb-10 pr-10 lg:block"
-          aria-hidden="true"
+          className="mx-auto hidden lg:block"
         >
-          <div className="size-64 rotate-[-2deg] rounded-3xl border-4 border-inkline bg-[#ffde59] p-3 shadow-[9px_9px_0_var(--c-hard)] xl:size-72">
-            <div className="size-full overflow-hidden rounded-2xl border-[3px] border-inkline">
-              <AvatarPortrait className="size-full" />
-            </div>
-          </div>
-          <span className="sticker fill-sky absolute -bottom-1 -left-5 rotate-[-5deg]">
-            AI/ML Engineer
-          </span>
-          <IconTile
-            Icon={Network}
-            fill="fill-pink"
-            bobClass="bob"
-            className="absolute -right-2 top-2"
-            label="Multi-agent systems"
-          />
-          <IconTile
-            Icon={Terminal}
-            fill="fill-mint"
-            bobClass="bob-2"
-            className="absolute -right-5 bottom-16"
-            label="Backend engineering"
-          />
-          <IconTile
-            Icon={Database}
-            fill="fill-lav"
-            bobClass="bob-3"
-            className="absolute -left-7 top-10"
-            label="Data pipelines"
-          />
+          <StatusTerminal />
         </motion.div>
       </div>
 
@@ -203,7 +210,7 @@ export function Hero() {
         initial={reduce ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9, duration: 0.6 }}
-        className="sq-press absolute bottom-6 left-1/2 flex size-11 -translate-x-1/2 items-center justify-center rounded-full"
+        className="sq-press absolute bottom-6 left-1/2 hidden size-11 -translate-x-1/2 items-center justify-center rounded-full lg:flex"
       >
         <ChevronDown className="size-5 animate-bounce" aria-hidden="true" />
       </motion.a>
