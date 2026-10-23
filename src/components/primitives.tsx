@@ -1,0 +1,224 @@
+import { motion, useReducedMotion } from "framer-motion";
+import { useRef, type MouseEvent, type ReactNode } from "react";
+import { hapticTap } from "../lib/haptics";
+
+// Scroll reveal wrapper. With reduced motion the content renders in place
+// (MotionConfig reducedMotion="user" disables the transform, opacity still fades once).
+export function Reveal({
+  children,
+  delay = 0,
+  y = 24,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  y?: number;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      className={className}
+      initial={reduce ? false : { opacity: 0, y }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, delay, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+type Tone = "a" | "b" | "c";
+
+// Full-bleed colored section with the shared block-style header.
+export function Section({
+  id,
+  index,
+  kicker,
+  title,
+  tone = "a",
+  children,
+}: {
+  id: string;
+  index: string;
+  kicker: string;
+  title: string;
+  tone?: Tone;
+  children: ReactNode;
+}) {
+  return (
+    <section
+      id={id}
+      aria-labelledby={`${id}-heading`}
+      className={`sec-${tone} scroll-mt-20 border-b-[3px] border-inkline`}
+    >
+      <div className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 md:py-24">
+        <Reveal>
+          <div className="mb-10 md:mb-14">
+            <p className="flex items-center gap-3 font-mono text-sm font-bold tracking-wide">
+              <span
+                className="inline-flex size-8 items-center justify-center rounded-lg border-[3px] border-inkline bg-card text-sm shadow-[3px_3px_0_var(--c-hard)]"
+                aria-hidden="true"
+              >
+                {index}
+              </span>
+              {kicker}
+            </p>
+            <h2
+              id={`${id}-heading`}
+              className="mt-4 font-display text-3xl uppercase leading-none tracking-tight text-ink sm:text-4xl md:text-5xl"
+            >
+              {title}
+            </h2>
+            <div
+              className="mt-4 h-2.5 w-24 rounded-full border-2 border-inkline bg-card"
+              aria-hidden="true"
+            />
+          </div>
+        </Reveal>
+        {children}
+      </div>
+    </section>
+  );
+}
+
+export function Chip({ children, small }: { children: ReactNode; small?: boolean }) {
+  return (
+    <span className={`chip ${small ? "px-2.5 py-1 text-xs" : "px-3 py-1.5 text-sm"}`}>
+      {children}
+    </span>
+  );
+}
+
+// Magnetic hover wrapper, desktop fine pointers only, disabled under reduced motion.
+export function Magnetic({
+  children,
+  strength = 0.2,
+  className,
+}: {
+  children: ReactNode;
+  strength?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+
+  const onMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (reduce || !window.matchMedia("(pointer: fine)").matches) return;
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - (rect.left + rect.width / 2);
+    const y = e.clientY - (rect.top + rect.height / 2);
+    el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+  };
+
+  const reset = () => {
+    if (ref.current) ref.current.style.transform = "";
+  };
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={reset}
+      className={`inline-block transition-transform duration-200 ${className ?? ""}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+// Buttons press like blocks: outline stays, shadow compresses (see .btn in
+// index.css). Every activation also fires a short haptic tick on touch devices.
+export function PrimaryButton({
+  href,
+  children,
+  onClick,
+  type,
+  small,
+}: {
+  href?: string;
+  children: ReactNode;
+  onClick?: () => void;
+  type?: "submit";
+  small?: boolean;
+}) {
+  const cls = `btn btn-primary ${small ? "px-4 py-2 text-sm" : ""}`;
+  const activate = () => {
+    hapticTap();
+    onClick?.();
+  };
+  if (href) {
+    return (
+      <a href={href} className={cls} onClick={activate}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <button type={type ?? "button"} className={cls} onClick={activate}>
+      {children}
+    </button>
+  );
+}
+
+export function SecondaryButton({
+  href,
+  children,
+  onClick,
+  download,
+  external,
+  small,
+}: {
+  href?: string;
+  children: ReactNode;
+  onClick?: () => void;
+  download?: boolean;
+  external?: boolean;
+  small?: boolean;
+}) {
+  const cls = `btn btn-secondary ${small ? "px-4 py-2 text-sm" : ""}`;
+  return (
+    <a
+      href={href}
+      download={download}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noreferrer noopener" : undefined}
+      className={cls}
+      onClick={() => {
+        hapticTap();
+        onClick?.();
+      }}
+    >
+      {children}
+    </a>
+  );
+}
+
+// Decorative floating icon tile (neural net / terminal / database etc.).
+// Max 2-3 per section; purely visual, hidden from assistive tech.
+export function IconTile({
+  Icon,
+  fill,
+  bobClass = "bob",
+  className,
+  label,
+}: {
+  Icon: (props: { className?: string }) => ReactNode;
+  fill: string;
+  bobClass?: string;
+  className?: string;
+  label?: string;
+}) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`${bobClass} flex size-14 items-center justify-center rounded-2xl border-[3px] border-inkline shadow-[5px_5px_0_var(--c-hard)] ${fill} ${className ?? ""}`}
+      title={label}
+    >
+      <Icon className="size-6 text-[#17130b]" />
+    </div>
+  );
+}

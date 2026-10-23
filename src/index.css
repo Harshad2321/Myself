@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Archivo Black", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-page: var(--c-page);
+  --color-tonea: var(--c-tone-a);
+  --color-toneb: var(--c-tone-b);
+  --color-tonec: var(--c-tone-c);
+  --color-card: var(--c-card);
+  --color-ink: var(--c-ink);
+  --color-cardink: #17130b;
+  --color-muted: var(--c-muted);
+  --color-faint: var(--c-faint);
+  --color-line: var(--c-line);
+  --color-inkline: #101010;
+}
+
+/* Light (default): warm flat tones on saturated section backgrounds.
+   Dark: deep saturated tones (navy/plum/forest), same outline/shadow language
+   with off-white shadows. Comic ink outline stays #101010 in both. */
+:root,
+.light {
+  color-scheme: light;
+  --c-page: #fdf3d3;
+  --c-tone-a: #ffde59;
+  --c-tone-b: #7dd3fc;
+  --c-tone-c: #f9a8d4;
+  --c-card: #ffffff;
+  --c-ink: #17130b;
+  --c-muted: #45403a;
+  --c-faint: #5c564e;
+  --c-line: rgba(23, 19, 11, 0.14);
+  --c-hard: #101010;
+  --c-focus: #101010;
+}
+
+.dark {
+  color-scheme: dark;
+  --c-page: #1d2447;
+  --c-tone-a: #27346f;
+  --c-tone-b: #46265c;
+  --c-tone-c: #1f5040;
+  --c-card: #f7f3e6;
+  --c-ink: #f3efe2;
+  --c-muted: #ddd7c3;
+  --c-faint: #c4bda6;
+  --c-line: rgba(243, 239, 226, 0.16);
+  --c-hard: #e6e0ce;
+  --c-focus: #f3efe2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-page);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #101010;
+  color: #ffde59;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  border: 3px solid #101010;
+  border-radius: 12px;
+  background: #ffde59;
+  color: #101010;
+  font-weight: 700;
+  padding: 10px 16px;
+  box-shadow: 5px 5px 0 #101010;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---- Neo-brutalist block language --------------------------------------- */
+
+/* Card: thick outline + hard offset shadow. Cream in dark mode keeps body
+   copy near-black and recruiter-readable in both themes. */
+.card {
+  background: var(--c-card);
+  border: 3px solid #101010;
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--c-hard);
+  color: #17130b;
+}
+
+/* Small chip / tag block */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #f6efdb;
+  border: 2px solid #101010;
+  border-radius: 9999px;
+  color: #17130b;
+  font-weight: 600;
+  box-shadow: 2.5px 2.5px 0 var(--c-hard);
+  transition: translate 110ms ease, box-shadow 110ms ease;
+}
+.chip:hover {
+  translate: 1.5px 1.5px;
+  box-shadow: 1px 1px 0 var(--c-hard);
+}
+.chip:active {
+  translate: 2.5px 2.5px;
+  box-shadow: 0 0 0 var(--c-hard);
+}
+
+/* Buttons: pressing a block. Hover leans in, active presses down with the
+   shadow compressing toward the outline. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 3px solid #101010;
+  border-radius: 16px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+  box-shadow: 6px 6px 0 var(--c-hard);
+  transition: translate 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+.btn:hover {
+  translate: 2px 2px;
+  box-shadow: 4px 4px 0 var(--c-hard);
+}
+.btn:active {
+  translate: 4px 4px;
+  box-shadow: 2px 2px 0 var(--c-hard);
+}
+.btn-primary {
+  background: #101010;
+  color: #ffde59;
+}
+.btn-secondary {
+  background: var(--c-card);
+  color: #17130b;
+}
+
+/* Cards lift slightly on hover (shadow offset grows) */
+.lift {
+  transition: translate 140ms ease, box-shadow 140ms ease;
+}
+.lift:hover {
+  translate: -2px -2px;
+  box-shadow: 8px 8px 0 var(--c-hard);
+}
+
+/* Section tone backgrounds (full-bleed) */
+.sec-a { background: var(--c-tone-a); }
+.sec-b { background: var(--c-tone-b); }
+.sec-c { background: var(--c-tone-c); }
+
+/* Flat pastel utility fills — same in both themes so rarity tags,
+   segment bars and stickers stay legible (near-black text) everywhere */
+.fill-yellow { background: #ffde59; }
+.fill-sky    { background: #7dd3fc; }
+.fill-pink   { background: #f9a8d4; }
+.fill-mint   { background: #6ee7b7; }
+.fill-gold   { background: #fbbf24; }
+.fill-lav    { background: #c4b5fd; }
+
+/* Sticker-style HUD pills, rotated like pinned stickers */
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 3px solid #101010;
+  border-radius: 12px;
+  padding: 0.35rem 0.8rem;
+  color: #17130b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 4px 4px 0 var(--c-hard);
+}
+
+/* Gentle bob for decorative icon tiles */
+@keyframes bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -7px; }
+}
+.bob { animation: bob 3.6s ease-in-out infinite; }
+.bob-2 { animation: bob 4.2s ease-in-out 0.7s infinite; }
+.bob-3 { animation: bob 3.1s ease-in-out 1.3s infinite; }
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-caret {
+  animation: caret-blink 1.1s step-end infinite;
+}
+
+/* Square icon button (socials, theme toggle): same press physics */
+.sq-press {
+  border: 3px solid #101010;
+  background: var(--c-card);
+  color: #17130b;
+  box-shadow: 4px 4px 0 var(--c-hard);
+  transition: translate 110ms ease, box-shadow 110ms ease;
+}
+.sq-press:hover {
+  translate: 2px 2px;
+  box-shadow: 2px 2px 0 var(--c-hard);
+}
+.sq-press:active {
+  translate: 4px 4px;
+  box-shadow: 0 0 0 var(--c-hard);
+}
+
+/* Chunky XP progress bar: flat fill with a hard leading edge */
+.xp-fill {
+  background: #f4589e;
+  border-right: 3px solid #101010;
+}
+
+/* Loading screen bar: light block sliding along a black track */
+.intro-track {
+  border: 3px solid #101010;
+  background: #101010;
+  box-shadow: 5px 5px 0 var(--c-hard);
+}
+.intro-block {
+  background: #fdf3d3;
+}
+
+/* Custom cursor: native cursor hidden only while the block cursor is active
+   (fine pointers, no reduced motion). Keyboard focus outlines unaffected. */
+.ha-cursor,
+.ha-cursor * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harshad Agrawal | AI/ML Engineer and Data Enthusiast</title>
+    <meta
+      name="description"
+      content="Portfolio of Harshad Agrawal, an AI/ML engineer and third-year B.Tech (AI and ML) student in Pune. Multi-agent LLM systems, RAG pipelines, anomaly detection, data analytics and backend engineering."
+    />
+    <meta name="author" content="Harshad Agrawal" />
+    <meta name="theme-color" content="#fdf3d3" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Harshad Agrawal | AI/ML Engineer and Data Enthusiast" />
+    <meta
+      property="og:description"
+      content="Multi-agent LLM systems, RAG pipelines, anomaly detection, data analytics and backend engineering. Portfolio of Harshad Agrawal, Pune."
+    />
+    <!-- TODO: add og:image and og:url once the site has a final domain and a 1200x630 card image -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Harshad Agrawal | AI/ML Engineer and Data Enthusiast" />
+    <meta
+      name="twitter:description"
+      content="Multi-agent LLM systems, RAG pipelines, anomaly detection, data analytics and backend engineering."
+    />
+
+    <!-- Set theme before first paint to avoid a flash. Light is the default
+         direction; dark swaps flat tones for deep saturated ones. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ha-theme");
+          if (t !== "dark" && t !== "light") {
+            t = "light";
+          }
+          document.documentElement.classList.remove("dark", "light");
+          document.documentElement.classList.add(t);
+        } catch (e) {
+          document.documentElement.classList.add("light");
+        }
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Harshad Agrawal",
+        "jobTitle": "AI/ML Engineer",
+        "email": "mailto:harshad.agrawal2005@gmail.com",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Symbiosis Institute of Technology"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://github.com/Harshad2321",
+          "https://www.linkedin.com/in/harshad-agrawal-486964322",
+          "https://leetcode.com/u/harshadagrawal/",
+          "https://www.hackerrank.com/profile/harshad_agrawal1",
+          "https://myself-chi-mauve.vercel.app"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
