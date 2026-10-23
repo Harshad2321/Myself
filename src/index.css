@@ -232,6 +232,16 @@ body {
   box-shadow: 0 0 0 var(--c-hard);
 }
 
+/* Loadout: tech chips pop in sequence when a quest card is hovered or
+   focused (keyboard gets the same reveal via :focus-within) */
+.loadout > li {
+  transition: translate 180ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.card:hover .loadout > li,
+.card:focus-within .loadout > li {
+  translate: 0 -3px;
+}
+
 /* Chunky XP progress bar: flat fill with a hard leading edge */
 .xp-fill {
   background: #f4589e;

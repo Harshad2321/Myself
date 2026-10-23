@@ -5,11 +5,14 @@ import {
   aboutEducationSummary,
   aboutParagraphs,
   currentlyStatus,
+  education,
   identity,
   openToRoles,
   quickStats,
 } from "../content";
 import { Chip, Reveal, Section } from "./primitives";
+import { FlexCardButton } from "./FlexCard";
+import { AvatarPortrait } from "./Avatar";
 
 function CountUp({
   to,
@@ -46,12 +49,38 @@ function CountUp({
   return <span ref={ref}>{value.toFixed(decimals)}</span>;
 }
 
+// Level bar framing for the education line — the number is the real semester.
+function LevelBar() {
+  const total = 8; // standard 8-semester B.Tech, expected May 2028
+  const sem = Number(education.status.replace(/\D+/g, "")) || 0;
+  return (
+    <div>
+      <p className="flex items-center justify-between font-mono text-xs font-bold text-[#17130b]/70">
+        <span>
+          LV.{sem} · SEM {sem}/{total}
+        </span>
+        <span>{aboutEducationSummary}</span>
+      </p>
+      <div className="mt-2 flex gap-1" aria-hidden="true">
+        {Array.from({ length: total }, (_, i) => (
+          <span
+            key={i}
+            className={`h-3 flex-1 rounded-[4px] border-2 border-inkline ${
+              i < sem ? "fill-yellow" : "bg-transparent"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function About() {
   return (
-    <Section id="about" index="01" kicker="who I am" title="About">
+    <Section id="about" index="01" kicker="who I am" title="About" tone="b">
       <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr] lg:gap-14">
         <Reveal>
-          <div className="space-y-5 text-base leading-relaxed text-muted sm:text-lg">
+          <div className="card space-y-5 p-6 text-base leading-relaxed text-[#17130b] sm:p-8 sm:text-lg">
             {aboutParagraphs.map((paragraph) => (
               <p key={paragraph.slice(0, 32)}>{paragraph}</p>
             ))}
@@ -60,37 +89,37 @@ export function About() {
 
         <Reveal delay={0.1}>
           <aside className="space-y-4 lg:sticky lg:top-24">
-            <div className="rounded-2xl border border-line bg-surface p-6">
+            <div className="card p-6">
               <div className="flex items-center gap-4">
-                {/* TODO(owner): replace monogram with a profile photo when available */}
-                <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-accent2 font-display text-xl font-bold text-[#07101d]">
-                  {identity.initials}
+                {/* TODO(owner): replace placeholder art — see AVATAR-BRIEF.md */}
+                <div className="size-16 shrink-0 rotate-[-2deg] rounded-2xl border-[3px] border-inkline bg-[#ffde59] p-1 shadow-[4px_4px_0_var(--c-hard)]">
+                  <AvatarPortrait className="size-full rounded-xl" />
                 </div>
                 <div>
-                  <p className="font-display text-lg font-semibold">{identity.name}</p>
-                  <p className="flex items-center gap-1.5 text-sm text-muted">
+                  <p className="font-display text-lg text-[#17130b]">{identity.name}</p>
+                  <p className="flex items-center gap-1.5 text-sm font-medium text-[#45403a]">
                     <MapPin className="size-4 shrink-0" aria-hidden="true" />
                     {identity.location}
                   </p>
                 </div>
               </div>
-              <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm">
-                <p className="flex gap-2.5 text-muted">
-                  <Sparkles className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+              <div className="mt-5 space-y-3 border-t-2 border-dashed border-[#17130b]/20 pt-5 text-sm">
+                <p className="flex gap-2.5 font-medium text-[#45403a]">
+                  <Sparkles className="mt-0.5 size-4 shrink-0 text-[#17130b]" aria-hidden="true" />
                   <span>
-                    <span className="font-semibold text-ink">Currently: </span>
+                    <span className="font-bold text-[#17130b]">Currently: </span>
                     {currentlyStatus.label}. {currentlyStatus.detail}
                   </span>
                 </p>
-                <p className="flex gap-2.5 text-muted">
-                  <GraduationCap className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-                  {aboutEducationSummary}
+                <p className="flex gap-2.5 font-medium text-[#45403a]">
+                  <GraduationCap className="mt-0.5 size-4 shrink-0 text-[#17130b]" aria-hidden="true" />
+                  <LevelBar />
                 </p>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-line bg-surface p-6">
-              <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-muted">
+            <div className="card p-6">
+              <h3 className="font-display text-sm uppercase tracking-wide text-[#17130b]">
                 Open to roles
               </h3>
               <ul className="mt-3 flex flex-wrap gap-2">
@@ -105,24 +134,32 @@ export function About() {
         </Reveal>
       </div>
 
-      <ul className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {quickStats.map((stat, i) => (
-          <motion.li
-            key={stat.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
-            className="rounded-2xl border border-line bg-surface p-5 text-center transition-colors hover:border-accent/40"
-          >
-            <p className="font-display text-3xl font-bold text-gradient sm:text-4xl">
-              <CountUp to={stat.value} decimals={stat.decimals} />
-              {stat.suffix}
-            </p>
-            <p className="mt-2 text-xs leading-snug text-muted sm:text-sm">{stat.label}</p>
-          </motion.li>
-        ))}
-      </ul>
+      <Reveal className="mt-14">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <h3 className="font-display text-xl uppercase text-ink sm:text-2xl">Stat sheet</h3>
+          <FlexCardButton />
+        </div>
+        <ul className="grid grid-cols-2 gap-5 sm:grid-cols-4">
+          {quickStats.map((stat, i) => (
+            <motion.li
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
+              className="card lift p-5 text-center"
+            >
+              <p className="font-display text-3xl text-[#17130b] sm:text-4xl">
+                <CountUp to={stat.value} decimals={stat.decimals} />
+                {stat.suffix}
+              </p>
+              <p className="mt-2 text-xs font-semibold leading-snug text-[#45403a] sm:text-sm">
+                {stat.label}
+              </p>
+            </motion.li>
+          ))}
+        </ul>
+      </Reveal>
     </Section>
   );
 }

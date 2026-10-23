@@ -3,6 +3,8 @@ import { Check, Copy, Eye, Mail, MapPin, Phone, Send } from "lucide-react";
 import { identity, openToRoles } from "../content";
 import { GithubIcon, HackerrankIcon, LeetcodeIcon, LinkedinIcon } from "./icons";
 import { PrimaryButton, Reveal, Section } from "./primitives";
+import { celebrate } from "../lib/celebrate";
+import { hapticTap, hapticMoment } from "../lib/haptics";
 
 function CopyEmail() {
   const [copied, setCopied] = useState(false);
@@ -10,6 +12,7 @@ function CopyEmail() {
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(identity.email);
+      hapticTap();
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -22,9 +25,9 @@ function CopyEmail() {
       type="button"
       onClick={copy}
       aria-label="Copy email address"
-      className="flex size-9 items-center justify-center rounded-lg border border-line text-muted transition hover:border-accent/60 hover:text-ink"
+      className="sq-press flex size-9 items-center justify-center rounded-lg"
     >
-      {copied ? <Check className="size-4 text-accent" /> : <Copy className="size-4" />}
+      {copied ? <Check className="size-4 text-[#17130b]" /> : <Copy className="size-4" />}
     </button>
   );
 }
@@ -36,7 +39,7 @@ function PhoneReveal() {
     return (
       <a
         href={`tel:${identity.phone.replace(/\s/g, "")}`}
-        className="font-mono text-base text-ink underline-offset-4 hover:underline"
+        className="font-mono text-base font-bold text-[#17130b] underline decoration-[3px] underline-offset-4"
       >
         {identity.phone}
       </a>
@@ -45,8 +48,11 @@ function PhoneReveal() {
   return (
     <button
       type="button"
-      onClick={() => setShown(true)}
-      className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-muted transition hover:border-accent/60 hover:text-ink"
+      onClick={() => {
+        hapticTap();
+        setShown(true);
+      }}
+      className="chip px-4 py-2 text-sm font-bold"
     >
       <Eye className="size-4" aria-hidden="true" />
       Click to reveal phone number
@@ -76,20 +82,22 @@ export function Contact() {
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
+    hapticMoment();
+    celebrate();
     const subject = encodeURIComponent(`Portfolio contact from ${form.name}`);
     const body = encodeURIComponent(`${form.message}\n\nFrom: ${form.name} (${form.email})`);
     window.location.href = `mailto:${identity.email}?subject=${subject}&body=${body}`;
   };
 
   const inputCls =
-    "w-full rounded-xl border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-faint transition focus:border-accent/60 focus:outline-none";
+    "w-full rounded-xl border-[3px] border-inkline bg-card px-4 py-3 text-sm font-medium text-[#17130b] placeholder:text-[#17130b]/40 transition-[box-shadow,translate] duration-100 focus:translate-x-[2px] focus:translate-y-[2px] focus:shadow-[2px_2px_0_var(--c-hard)] focus:outline-none";
 
   return (
-    <Section id="contact" index="09" kicker="say hello" title="Get in Touch">
+    <Section id="contact" index="09" kicker="say hello" title="Get in Touch" tone="a">
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal>
           <div>
-            <p className="text-base leading-relaxed text-muted sm:text-lg">
+            <p className="text-base font-semibold leading-relaxed text-ink sm:text-lg">
               I am open to {openToRoles.slice(0, 2).join(", ")}, {openToRoles.slice(2).join(", ")}{" "}
               and similar roles. Whether you have an opportunity, a project idea, or a question
               about anything on this page, my inbox is open.
@@ -97,43 +105,43 @@ export function Contact() {
 
             <ul className="mt-8 space-y-4">
               <li className="flex flex-wrap items-center gap-3">
-                <span className="flex size-10 items-center justify-center rounded-xl border border-line bg-surface text-accent">
-                  <Mail className="size-4.5" aria-hidden="true" />
+                <span className="fill-sky flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]">
+                  <Mail className="size-5 text-[#17130b]" aria-hidden="true" />
                 </span>
                 <a
                   href={`mailto:${identity.email}`}
-                  className="break-all font-medium underline-offset-4 hover:underline"
+                  className="break-all font-bold text-[#17130b] underline decoration-[3px] underline-offset-4 hover:bg-[#ffde59]"
                 >
                   {identity.email}
                 </a>
                 <CopyEmail />
               </li>
               <li className="flex flex-wrap items-center gap-3">
-                <span className="flex size-10 items-center justify-center rounded-xl border border-line bg-surface text-accent">
-                  <MapPin className="size-4.5" aria-hidden="true" />
+                <span className="fill-pink flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]">
+                  <MapPin className="size-5 text-[#17130b]" aria-hidden="true" />
                 </span>
-                {identity.location}
+                <span className="font-semibold text-ink">{identity.location}</span>
               </li>
               <li className="flex flex-wrap items-center gap-3">
-                <span className="flex size-10 items-center justify-center rounded-xl border border-line bg-surface text-accent">
-                  <Phone className="size-4.5" aria-hidden="true" />
+                <span className="fill-mint flex size-11 items-center justify-center rounded-xl border-[3px] border-inkline shadow-[3px_3px_0_var(--c-hard)]">
+                  <Phone className="size-5 text-[#17130b]" aria-hidden="true" />
                 </span>
                 <PhoneReveal />
               </li>
             </ul>
 
-            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+            <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
               {links.map(({ label, value, href, Icon }) => (
                 <li key={label}>
                   <a
                     href={href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="flex h-full flex-col gap-2 rounded-xl border border-line bg-surface p-4 transition duration-200 hover:-translate-y-1 hover:border-accent/50"
+                    className="card lift flex h-full flex-col gap-2 p-4"
                   >
-                    <Icon className="size-5 text-accent" />
-                    <span className="text-sm font-semibold">{label}</span>
-                    <span className="truncate text-xs text-faint" title={value}>
+                    <Icon className="size-5 text-[#17130b]" />
+                    <span className="text-sm font-bold text-[#17130b]">{label}</span>
+                    <span className="truncate text-xs font-semibold text-[#45403a]" title={value}>
                       {value}
                     </span>
                   </a>
@@ -144,14 +152,10 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <form
-            onSubmit={submit}
-            className="rounded-2xl border border-line bg-surface p-6 sm:p-8"
-            aria-label="Contact form"
-          >
+          <form onSubmit={submit} className="card p-6 sm:p-8" aria-label="Contact form">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label htmlFor="contact-name" className="mb-1.5 block text-sm font-medium">
+                <label htmlFor="contact-name" className="mb-1.5 block text-sm font-bold text-[#17130b]">
                   Name
                 </label>
                 <input
@@ -165,7 +169,7 @@ export function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="contact-email" className="mb-1.5 block text-sm font-medium">
+                <label htmlFor="contact-email" className="mb-1.5 block text-sm font-bold text-[#17130b]">
                   Email
                 </label>
                 <input
@@ -181,7 +185,7 @@ export function Contact() {
               </div>
             </div>
             <div className="mt-4">
-              <label htmlFor="contact-message" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="contact-message" className="mb-1.5 block text-sm font-bold text-[#17130b]">
                 Message
               </label>
               <textarea
@@ -199,7 +203,7 @@ export function Contact() {
                 <Send className="size-4" aria-hidden="true" />
                 Send Message
               </PrimaryButton>
-              <p className="text-xs text-faint">
+              <p className="text-xs font-semibold text-[#45403a]">
                 This form opens your email client with the message pre-filled.
               </p>
             </div>
