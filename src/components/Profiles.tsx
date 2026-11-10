@@ -83,7 +83,7 @@ export function Profiles() {
             )}
           </ul>
           <p className="mt-4 text-sm font-semibold text-[#45403a]">
-            29 repositories on{" "}
+            34 repositories on{" "}
             <a
               href="https://github.com/Harshad2321?tab=repositories"
               target="_blank"

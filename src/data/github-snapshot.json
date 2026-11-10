@@ -1,6 +1,6 @@
 {
   "login": "Harshad2321",
-  "publicRepos": 24,
+  "publicRepos": 34,
   "followers": 11,
   "stars": 13,
   "topLanguages": [
@@ -32,36 +32,20 @@
   "calendar": null,
   "recentRepos": [
     {
-      "name": "A-Ray-of-Hope-LMS",
-      "description": "A full-stack Learning Management System built for A Ray of Hope Charitable Trust with Node.js, Express, SQLite, React, Vite, and Tailwind CSS.",
-      "language": "JavaScript",
+      "name": "NanoGPT",
+      "description": "Character-level GPT built from scratch in PyTorch, following Andrej Karpathy's 'Let's Build GPT.'",
+      "language": "Jupyter Notebook",
       "stars": 0,
-      "pushedAt": "2026-10-23T19:39:44Z",
-      "url": "https://github.com/Harshad2321/A-Ray-of-Hope-LMS"
+      "pushedAt": "2026-11-05T12:00:00Z",
+      "url": "https://github.com/Harshad2321/NanoGPT"
     },
     {
-      "name": "Myself",
-      "description": null,
-      "language": "TypeScript",
-      "stars": 1,
-      "pushedAt": "2026-10-23T19:19:34Z",
-      "url": "https://github.com/Harshad2321/Myself"
-    },
-    {
-      "name": "Harshad2321",
-      "description": null,
-      "language": null,
-      "stars": 1,
-      "pushedAt": "2026-10-23T13:18:20Z",
-      "url": "https://github.com/Harshad2321/Harshad2321"
-    },
-    {
-      "name": "Network-Blog",
-      "description": null,
-      "language": "HTML",
+      "name": "mcp-smartcache",
+      "description": "A caching gateway for Model Context Protocol (MCP) tools, featuring Redis-backed response caching, deterministic cache keys, policy-based cache control, request coalescing, and TTL management.",
+      "language": "Python",
       "stars": 0,
-      "pushedAt": "2026-10-20T11:59:57Z",
-      "url": "https://github.com/Harshad2321/Network-Blog"
+      "pushedAt": "2026-11-04T12:00:00Z",
+      "url": "https://github.com/Harshad2321/mcp-smartcache"
     },
     {
       "name": "JanSetu-AI",
@@ -72,13 +56,29 @@
       "url": "https://github.com/Harshad2321/JanSetu-AI"
     },
     {
-      "name": "ReShare",
-      "description": null,
-      "language": null,
+      "name": "Exoplanet-Classifier-NASA-KOI-K2-TESS-",
+      "description": "NASA Space Apps Challenge 2025 entry using KOI, K2 and TESS data to classify exoplanets.",
+      "language": "Python",
       "stars": 0,
-      "pushedAt": "2026-10-15T12:14:18Z",
-      "url": "https://github.com/Harshad2321/ReShare"
+      "pushedAt": "2026-10-18T10:00:00Z",
+      "url": "https://github.com/Harshad2321/Exoplanet-Classifier-NASA-KOI-K2-TESS-"
+    },
+    {
+      "name": "FairLens-AI",
+      "description": "Full-stack app analysing human-AI conversations for bias, toxicity and behavioural patterns, using Google Generative AI (Gemini).",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-10-16T10:00:00Z",
+      "url": "https://github.com/Harshad2321/FairLens-AI"
+    },
+    {
+      "name": "Myself",
+      "description": "This portfolio itself: React, TypeScript, Tailwind CSS, neo-brutalist terminal-inspired UI, interactive project showcases, GitHub + LeetCode integration.",
+      "language": "TypeScript",
+      "stars": 1,
+      "pushedAt": "2026-11-10T16:00:00Z",
+      "url": "https://github.com/Harshad2321/Myself"
     }
   ],
-  "fetchedAt": "2026-10-23T19:52:42.615Z"
+  "fetchedAt": "2026-11-10T16:53:00.000Z"
 }
